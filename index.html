@@ -34,13 +34,16 @@
 
     /* ── Site header ─────────────────────────────────────────── */
     .site-header {
-      line-height: 0;
+      background-image: url('assets/cropped-bigbackground-1.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 120px;
     }
 
-    .site-header img {
-      width: 100%;
-      height: auto;
-      display: block;
+    @media (min-width: 768px) {
+      .site-header {
+        height: 200px;
+      }
     }
 
     .site-title, .site-description, .site-branding {
@@ -648,7 +651,6 @@
 
   <!-- ── Site Header ────────────────────────────────────────── -->
   <header id="masthead" class="site-header" role="banner">
-    <img src="assets/cropped-bigbackground-1.jpg" alt="Embodied Intelligence" />
     <div class="site-branding">
       <h1 class="site-title">
         <a href="https://embodied-intelligence.org/" rel="home">Embodied Intelligence</a>
