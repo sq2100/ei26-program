@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EI&#8217;26 PROGRAM | Embodied Intelligence</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      color: #444444;
+      font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a, a:visited { color: #2B72B4; text-decoration: none; }
+    a:hover, a:focus, a:active { color: #2B72B4; text-decoration: underline; }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Raleway, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #2D2D2D;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .site-header {
+      background-color: #1a2a3a;
+      background-image:
+        linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(10,30,55,0.75) 100%),
+        linear-gradient(180deg, #1e3a5f 0%, #0d1f35 100%);
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .site-branding {
+      color: #ffffff;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Raleway, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+    }
+
+    .site-title a, .site-title a:visited {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .site-title a:hover, .site-title a:focus {
+      color: #A3C7E9;
+      text-decoration: none;
+    }
+
+    .site-description {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      letter-spacing: 0.06em;
+      font-style: italic;
+      font-family: Lato, sans-serif;
+    }
+
+    /* ── Navigation ──────────────────────────────────────────── */
+    .main-navigation {
+      background-color: #2D2D2D;
+      border-bottom: 3px solid #2B72B4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+      font-family: Raleway, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+      border-radius: 3px;
+      margin: 0.65rem 0;
+    }
+
+    #primary-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    #primary-menu > li {
+      position: relative;
+    }
+
+    #primary-menu > li > a {
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.05rem;
+      font-family: Raleway, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #dddddd;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s, background-color 0.15s;
+    }
+
+    #primary-menu > li > a:hover,
+    #primary-menu > li.current-menu-item > a {
+      color: #ffffff;
+      background-color: #2B72B4;
+    }
+
+    /* Dropdown */
+    .sub-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background-color: #333333;
+      list-style: none;
+      margin: 0;
+      padding: 0.4rem 0;
+      z-index: 200;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .sub-menu .sub-menu {
+      top: 0;
+      left: 100%;
+    }
+
+    #primary-menu li:hover > .sub-menu {
+      display: block;
+    }
+
+    .sub-menu li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      font-family: Raleway, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #cccccc;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .sub-menu li a:hover {
+      color: #ffffff;
+      background-color: #2B72B4;
+    }
+
+    /* ── Site content wrapper ─────────────────────────────────── */
+    #content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* ── Entry (page content) ────────────────────────────────── */
+    .entry-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .entry-title {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: #2D2D2D;
+      letter-spacing: 0.02em;
+    }
+
+    .entry-content {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* WP block separator */
+    .wp-block-separator {
+      border: none;
+      border-top: 2px solid #eeeeee;
+      margin: 2rem 0;
+    }
+
+    /* WP block headings */
+    .wp-block-heading {
+      margin: 1.5rem 0 1rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Color overrides matching WordPress preset colors */
+    .has-vivid-purple-color      { color: #9b51e0 !important; }
+    .has-luminous-vivid-orange-color { color: #ff6900 !important; }
+    .has-vivid-red-color         { color: #cf2e2e !important; }
+
+    /* WP block image */
+    .wp-block-image {
+      margin: 0 0 1.5rem;
+    }
+
+    .wp-block-image img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .site-footer {
+      background-color: #2D2D2D;
+      color: #aaaaaa;
+      padding: 0;
+    }
+
+    /* Widget area (logo row) */
+    #tertiary {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .wp-block-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      align-items: center;
+    }
+
+    .wp-block-column {
+      flex: 1 1 160px;
+      min-width: 0;
+    }
+
+    .wp-block-image figure {
+      margin: 0;
+    }
+
+    .wp-block-image .aligncenter {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .wp-block-image .aligncenter img {
+      margin: 0 auto;
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .has-text-align-center {
+      text-align: center;
+    }
+
+    .widget-logo-label {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+      color: #A3C7E9;
+      font-family: Raleway, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    /* Footer bottom bar */
+    .footer-bottom {
+      border-top: 1px solid #444444;
+      padding: 1rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: #888888;
+      font-family: Raleway, sans-serif;
+    }
+
+    .footer-bottom a, .footer-bottom a:visited { color: #A3C7E9; }
+    .footer-bottom a:hover { color: #ffffff; }
+
+    /* ── Schedule board ───────────────────────────────────────── */
+    .tz-notice {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1rem;
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #5d4037;
+      margin-bottom: 0.75rem;
+    }
+
+    .schedule-board {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      font-family: Lato, Arial, sans-serif;
+      background: #fff;
+      margin-bottom: 1.5rem;
+      font-size: 0.84rem;
+    }
+
+    .sb-header {
+      display: grid;
+      grid-template-columns: 130px 1fr 130px;
+      background: #1a2744;
+      color: #fff;
+      padding: 0.9rem 1.25rem;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .sb-conf-badge {
+      font-family: Raleway, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sb-conf-sub {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.45;
+      margin-top: 0.2rem;
+    }
+
+    .sb-title-col { text-align: center; }
+
+    .sb-conf-title {
+      font-family: Raleway, sans-serif;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sb-tz-label {
+      font-size: 0.88rem;
+      color: #ff8a80;
+      margin-top: 0.2rem;
+    }
+
+    .sb-tz-badge-col { text-align: center; }
+
+    .sb-tz-badge {
+      display: inline-block;
+      background: #5B2D8E;
+      color: #fff;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      font-family: Raleway, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .sb-body {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+    }
+
+    .sb-sidebar {
+      background: #2B3A6B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: Raleway, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .sb-days-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .sb-day + .sb-day {
+      border-left: 1px solid #d0d0d0;
+    }
+
+    .sb-day-header {
+      background: #fff;
+      color: #1a2744;
+      font-family: Raleway, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 2px solid #1a2744;
+      letter-spacing: 0.04em;
+    }
+
+    .sb-session-header {
+      background: #1a2744;
+      color: #fff;
+      font-family: Raleway, sans-serif;
+      font-weight: 700;
+      font-size: 0.76rem;
+      padding: 0.35rem 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sb-slot {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 0.4rem;
+      padding: 0.42rem 0.85rem;
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 1.45;
+      align-items: start;
+    }
+
+    .sb-slot.sb-break {
+      background: #e8f4fd;
+    }
+
+    .sb-time {
+      font-weight: 700;
+      color: #2c2c2c;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.81rem;
+      padding-top: 0.05rem;
+    }
+
+    .sb-desc { color: #333; }
+
+    .sb-speaker {
+      display: block;
+      font-weight: 700;
+      color: #8B1A1A;
+    }
+
+    .sb-chair {
+      display: block;
+      color: #555;
+      font-size: 0.78rem;
+    }
+
+    .sb-note {
+      background: #f5f5f5;
+      border-top: 1px solid #e0e0e0;
+      padding: 0.45rem 1rem;
+      font-size: 0.76rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .sb-tz-badge.orange { background: #c85a00; }
+    .sb-tz-badge.red    { background: #a62020; }
+
+    /* notice when placed inside a schedule-board */
+    .schedule-board > .tz-notice {
+      border-radius: 0;
+      margin: 0;
+      border: none;
+      border-bottom: 1px solid #ffe082;
+    }
+
+    /* ── Timezone switcher bar ─────────────────────────────── */
+    .tz-switcher-bar {
+      position: sticky;
+      top: 52px;
+      z-index: 90;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .tz-switcher-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.45rem 1.5rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tz-switcher-label {
+      font-family: Raleway, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #777;
+      white-space: nowrap;
+    }
+
+    .tz-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .tz-btn {
+      padding: 0.26rem 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      background: #fff;
+      color: #555;
+      font-family: Raleway, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+      white-space: nowrap;
+    }
+
+    .tz-btn:hover { border-color: #2B72B4; color: #2B72B4; }
+
+    .tz-btn.active {
+      background: #2B72B4;
+      border-color: #2B72B4;
+      color: #fff;
+    }
+
+    .tz-select {
+      padding: 0.26rem 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      background: #fff;
+      color: #444;
+      font-family: Raleway, sans-serif;
+      font-size: 0.74rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    .tz-select.visible { display: inline-block; }
+
+    .tz-current-label {
+      font-size: 0.74rem;
+      color: #999;
+      font-style: italic;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 780px) {
+      .sb-header { grid-template-columns: 1fr; text-align: center; }
+      .sb-tz-badge-col { display: none; }
+      .sb-days-grid { grid-template-columns: 1fr; }
+      .sb-day + .sb-day { border-left: none; border-top: 2px solid #1a2744; }
+      .sb-slot { grid-template-columns: 100px 1fr; }
+
+      .menu-toggle { display: block; }
+
+      #primary-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid #444444;
+      }
+
+      #primary-menu.is-open { display: flex; }
+
+      #primary-menu > li > a { padding: 0.75rem 1rem; }
+
+      .sub-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #252525;
+        padding-left: 1rem;
+      }
+
+      .sub-menu .sub-menu {
+        position: static;
+      }
+
+      #primary-menu li:hover > .sub-menu,
+      #primary-menu li.is-open > .sub-menu {
+        display: block;
+      }
+
+      .wp-block-columns {
+        flex-direction: column;
+        gap: 1.5em;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+
+<div id="page" class="site">
+
+  <!-- ── Site Header ────────────────────────────────────────── -->
+  <header id="masthead" class="site-header" role="banner">
+    <div class="site-branding">
+      <h1 class="site-title">
+        <a href="https://embodied-intelligence.org/" rel="home">Embodied Intelligence</a>
+      </h1>
+      <p class="site-description">&#8230;creating an community to understand the emergence of physical intelligence</p>
+    </div>
+  </header><!-- #masthead -->
+
+  <!-- ── Navigation ────────────────────────────────────────── -->
+  <nav id="site-navigation" class="main-navigation" role="navigation">
+    <div class="nav-inner">
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+      <ul id="primary-menu" class="menu">
+        <li class="menu-item"><a href="https://embodied-intelligence.org/">WELCOME</a></li>
+        <li class="menu-item current-menu-item"><a href="#" aria-current="page">EI&#8217;26 PROGRAM</a></li>
+        <li class="menu-item"><a href="https://embodied-intelligence.org/ei26-masterclasses-break-out-sessions/">EI&#8217;26 MASTERCLASSES &amp; BREAK-OUT SESSIONS</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">PAST CONFERENCES</a>
+          <ul class="sub-menu">
+            <li class="menu-item menu-item-has-children">
+              <a href="https://embodied-intelligence.org/embodied-intelligence-conference25/">2025 EMBODIED INTELLIGENCE CONFERENCE</a>
+              <ul class="sub-menu">
+                <li><a href="https://embodied-intelligence.org/conference-programme-3/">CONFERENCE PROGRAMME</a></li>
+                <li><a href="https://embodied-intelligence.org/day-1-recordings-3/">EI'25 DAY 1: RECORDINGS</a></li>
+                <li><a href="https://embodied-intelligence.org/day-2-recordings-3/">EI'25 DAY 2: RECORDINGS</a></li>
+                <li><a href="https://embodied-intelligence.org/ei25-day-3-recordings/">EI'25 DAY 3: RECORDINGS</a></li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="https://embodied-intelligence.org/embodied-intelligence-conference24/">2024 EMBODIED INTELLIGENCE CONFERENCE</a>
+              <ul class="sub-menu">
+                <li><a href="https://embodied-intelligence.org/conference-programme-2/">CONFERENCE PROGRAMME</a></li>
+                <li><a href="https://embodied-intelligence.org/break-out-sessions-2/">EI&#8217;24 BREAK-OUT SESSIONS</a></li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="https://embodied-intelligence.org/embodied-intelligence-conference23-2/">2023 EMBODIED INTELLIGENCE CONFERENCE</a>
+              <ul class="sub-menu">
+                <li><a href="https://embodied-intelligence.org/conference-programme/">CONFERENCE PROGRAMME</a></li>
+                <li><a href="https://embodied-intelligence.org/break-out-sessions/">BREAK-OUT SESSIONS</a></li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="https://embodied-intelligence.org/conference-recordings/">2022 EMBODIED INTELLIGENCE CONFERENCE</a>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="https://embodied-intelligence.org/ei-conf-2021/">2021 EMBODIED INTELLIGENCE CONFERENCE</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="https://embodied-intelligence.org/conference-proceedings/">PAST CONFERENCE PROCEEDINGS</a></li>
+        <li class="menu-item"><a href="https://embodied-intelligence.org/contact/">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav><!-- #site-navigation -->
+
+  <!-- ── Timezone Switcher ─────────────────────────────────── -->
+  <div class="tz-switcher-bar">
+    <div class="tz-switcher-inner">
+      <span class="tz-switcher-label">Show times in:</span>
+      <div class="tz-btn-group">
+        <button class="tz-btn active" id="btn-local">Local Time</button>
+        <button class="tz-btn" id="btn-original">Original</button>
+        <button class="tz-btn" id="btn-other">Other</button>
+        <select class="tz-select" id="tz-other-select">
+          <option value="" disabled selected>— select a timezone —</option>
+          <optgroup label="UTC">
+            <option value="UTC">UTC+0 · UTC</option>
+          </optgroup>
+          <optgroup label="Americas">
+            <option value="America/Los_Angeles">UTC−7/8 · Los Angeles</option>
+            <option value="America/Chicago">UTC−5/6 · Chicago</option>
+            <option value="America/New_York">UTC−4/5 · New York</option>
+            <option value="America/Sao_Paulo">UTC−3 · São Paulo</option>
+          </optgroup>
+          <optgroup label="Europe &amp; Africa">
+            <option value="Europe/London">UTC+0/1 · London</option>
+            <option value="Europe/Paris">UTC+1/2 · Paris / Berlin</option>
+            <option value="Europe/Moscow">UTC+3 · Moscow</option>
+          </optgroup>
+          <optgroup label="Asia &amp; Oceania">
+            <option value="Asia/Dubai">UTC+4 · Dubai</option>
+            <option value="Asia/Kolkata">UTC+5:30 · India</option>
+            <option value="Asia/Bangkok">UTC+7 · Bangkok</option>
+            <option value="Asia/Shanghai">UTC+8 · Beijing / Shanghai</option>
+            <option value="Asia/Singapore">UTC+8 · Singapore</option>
+            <option value="Asia/Seoul">UTC+9 · Seoul</option>
+            <option value="Asia/Tokyo">UTC+9 · Tokyo</option>
+            <option value="Australia/Sydney">UTC+10/11 · Sydney</option>
+            <option value="Pacific/Auckland">UTC+12/13 · Auckland</option>
+          </optgroup>
+        </select>
+        <span class="tz-current-label" id="tz-current-label"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Content ────────────────────────────────────────────── -->
+  <div id="content" class="site-content">
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+
+        <article id="post-5125" class="hentry">
+          <header class="entry-header">
+            <h1 class="entry-title">EI&#8217;26 PROGRAM</h1>
+          </header>
+
+          <div class="entry-content">
+
+            <hr class="wp-block-separator" />
+
+            <h2 class="wp-block-heading has-vivid-purple-color has-text-color">ASIA SESSIONS <small style="font-size:0.6em;font-weight:400;color:#888">— for participants in the UTC+9 region</small></h2>
+
+            <!-- ── Asia Schedule (HTML, timezone-aware) ─────────── -->
+            <div class="schedule-board" data-orig-offset="540" data-orig-label="UTC+9" data-orig-region="ASIA" data-color="#5B2D8E">
+              <div class="tz-notice" style="display:none">
+                <span>🕐</span>
+                <span class="tz-notice-msg"></span>
+              </div>
+              <div class="sb-header">
+                <div class="sb-logo-col">
+                  <div class="sb-conf-badge">EI 2026</div>
+                  <div class="sb-conf-sub">EMBODIED INTELLIGENCE<br>ONLINE CONFERENCE<br>18–20 March 2026</div>
+                </div>
+                <div class="sb-title-col">
+                  <div class="sb-conf-title">Embodied Intelligence Conference'26</div>
+                  <div class="sb-tz-label">(TIME ZONE: <span class="sb-header-tz-val">UTC+9 ASIA</span>)</div>
+                </div>
+                <div class="sb-tz-badge-col">
+                  <div class="sb-tz-badge">TIME ZONE:<br><span class="sb-offset-val">UTC+9</span><br><span class="sb-region-val">ASIA</span></div>
+                </div>
+              </div>
+
+              <div class="sb-body">
+                <div class="sb-sidebar" style="background:#5B2D8E">Programme</div>
+                <div class="sb-days-grid">
+
+                  <!-- Day 1 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-19T00:00Z">19 MARCH 2026</div>
+
+                    <div class="sb-session-header">Morning Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T00:00Z" data-end="2026-03-19T00:15Z">09:00 – 09:15</span>
+                      <span class="sb-desc">Welcome and Introduction<br><span class="sb-speaker">FUMIYA IIDA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T00:15Z" data-end="2026-03-19T01:00Z">09:15 – 10:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">CECILIA LASCHI</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T01:00Z" data-end="2026-03-19T02:30Z">10:00 – 11:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">PABLO VALDIVIA Y ALVARADO<br>SHINICHI FURUYA<br>GURSEL ALICI</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T02:30Z" data-end="2026-03-19T04:00Z">11:30 – 13:00</span>
+                      <span class="sb-desc">Lunch &amp; Break-out Sessions<br><span class="sb-chair">Chair: SHAO QI, FAN YE</span></span>
+                    </div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T04:00Z" data-end="2026-03-19T04:45Z">13:00 – 13:45</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: JERRY XU</span><span class="sb-speaker">ANZHU GAO</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T04:45Z" data-end="2026-03-19T06:15Z">13:45 – 15:15</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">GUO DI<br>XINYU LIU</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T06:15Z" data-end="2026-03-19T06:30Z">15:15 – 15:30</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">FUMIYA IIDA</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T06:30Z" data-end="2026-03-19T08:00Z">15:30 – 17:00</span>
+                      <span class="sb-desc">Coffee Break and Breakout Sessions<br><span class="sb-chair">Chair: SHAO QI, KAI-FUNG CHU</span></span>
+                    </div>
+                  </div><!-- Day 1 -->
+
+                  <!-- Day 2 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-20T00:00Z">20 MARCH 2026</div>
+
+                    <div class="sb-session-header">Morning Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T00:00Z" data-end="2026-03-20T00:15Z">09:00 – 09:15</span>
+                      <span class="sb-desc">Introduction<br><span class="sb-speaker">FUMIYA IIDA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T00:15Z" data-end="2026-03-20T01:00Z">09:15 – 10:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">HITOSHI AONUMA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T01:00Z" data-end="2026-03-20T02:30Z">10:00 – 11:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">HUICHAN ZHAO<br>JE-SUNG KOH</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-20T02:30Z" data-end="2026-03-20T04:00Z">11:30 – 13:00</span>
+                      <span class="sb-desc">Lunch &amp; Break-out Sessions<br><span class="sb-chair">Chair: SHAO QI, TATSUYA DAIKOKU</span></span>
+                    </div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T04:00Z" data-end="2026-03-20T04:45Z">13:00 – 13:45</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: TATSUYA DAIKOKU</span><span class="sb-speaker">SHUGUANG LI</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T04:45Z" data-end="2026-03-20T06:15Z">13:45 – 15:15</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">TATSUYA DAIKOKU<br>JERRY XU</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T06:15Z" data-end="2026-03-20T06:30Z">15:15 – 15:30</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">FUMIYA IIDA</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-20T06:30Z" data-end="2026-03-20T08:00Z">15:30 – 17:00</span>
+                      <span class="sb-desc">Coffee Break and Breakout Sessions<br><span class="sb-chair">Chair: BENHUI DAI, JERRY XU</span></span>
+                    </div>
+                  </div><!-- Day 2 -->
+
+                </div><!-- .sb-days-grid -->
+              </div><!-- .sb-body -->
+
+              <div class="sb-note">* Time Zone Transition: ASIA 17:00 (UTC+9) = EUROPE 09:00 (UTC+1)</div>
+            </div><!-- .schedule-board -->
+
+            <hr class="wp-block-separator" />
+
+            <h2 class="wp-block-heading has-luminous-vivid-orange-color has-text-color">EUROPE SESSIONS <small style="font-size:0.6em;font-weight:400;color:#888">— for participants in the UTC+1 region</small></h2>
+
+            <!-- ── Europe Schedule (HTML, timezone-aware) ────────── -->
+            <div class="schedule-board" data-orig-offset="60" data-orig-label="UTC+1" data-orig-region="EUROPE">
+              <div class="tz-notice" style="display:none">
+                <span>🕐</span>
+                <span class="tz-notice-msg"></span>
+              </div>
+              <div class="sb-header">
+                <div class="sb-logo-col">
+                  <div class="sb-conf-badge">EI 2026</div>
+                  <div class="sb-conf-sub">EMBODIED INTELLIGENCE<br>ONLINE CONFERENCE<br>18–20 March 2026</div>
+                </div>
+                <div class="sb-title-col">
+                  <div class="sb-conf-title">Embodied Intelligence Conference'26</div>
+                  <div class="sb-tz-label">(TIME ZONE: <span class="sb-header-tz-val">UTC+1 EUROPE</span>)</div>
+                </div>
+                <div class="sb-tz-badge-col">
+                  <div class="sb-tz-badge orange">TIME ZONE:<br><span class="sb-offset-val">UTC+1</span><br><span class="sb-region-val">EUROPE</span></div>
+                </div>
+              </div>
+
+              <div class="sb-body">
+                <div class="sb-sidebar" style="background:#c85a00">Programme</div>
+                <div class="sb-days-grid">
+
+                  <!-- Day 1 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-19T08:00Z">19 MARCH 2026</div>
+
+                    <div class="sb-session-header">Morning Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T08:00Z" data-end="2026-03-19T08:15Z">09:00 – 09:15</span>
+                      <span class="sb-desc">Introduction<br><span class="sb-speaker">JOSIE HUGHES</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T08:15Z" data-end="2026-03-19T09:00Z">09:15 – 10:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">PIERRE-THOMAS BRUN</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T09:00Z" data-end="2026-03-19T10:30Z">10:00 – 11:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">MATEJ HOFFMANN<br>BARBARA MAZZOLAI<br>FEDERICO RENDA</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T10:30Z" data-end="2026-03-19T12:00Z">11:30 – 13:00</span>
+                      <span class="sb-desc">Lunch &amp; Break-out Sessions<br><span class="sb-chair">Chair: ARSEN ABDULALI, RAYMAN HASHEM</span></span>
+                    </div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T12:00Z" data-end="2026-03-19T12:45Z">13:00 – 13:45</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: PERLA MAIOLINO</span><span class="sb-speaker">HEDAN BAI</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T12:45Z" data-end="2026-03-19T14:15Z">13:45 – 15:15</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">ANTONIA GEORGOPOULOU<br>COSIMO DELLA SANTINA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T14:15Z" data-end="2026-03-19T14:30Z">15:15 – 15:30</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">PERLA MAIOLINO</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T14:30Z" data-end="2026-03-19T16:00Z">15:30 – 17:00</span>
+                      <span class="sb-desc">Coffee Break and Breakout Sessions<br><span class="sb-chair">Chair: DANA DAMIAN</span></span>
+                    </div>
+                  </div><!-- Day 1 -->
+
+                  <!-- Day 2 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-20T08:00Z">20 MARCH 2026</div>
+
+                    <div class="sb-session-header">Morning Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T08:00Z" data-end="2026-03-20T08:15Z">09:00 – 09:15</span>
+                      <span class="sb-desc">Introduction<br><span class="sb-speaker">CHAPA SIRITHUNGE</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T08:15Z" data-end="2026-03-20T09:00Z">09:15 – 10:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">LARS CHITTKA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T09:00Z" data-end="2026-03-20T10:30Z">10:00 – 11:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">MIRIAM KLOPOTEK<br>LUCIA MARUCCI<br>ORIT PELEG</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-20T10:30Z" data-end="2026-03-20T12:00Z">11:30 – 13:00</span>
+                      <span class="sb-desc">Lunch &amp; Break-out Sessions<br><span class="sb-chair">Chair: DAVID HARDMAN, THOMAS GEORGE THURUTHEL</span></span>
+                    </div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T12:00Z" data-end="2026-03-20T12:45Z">13:00 – 13:45</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: THILINA LALITHARATNE</span><span class="sb-speaker">AMY WINTERS</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T12:45Z" data-end="2026-03-20T14:15Z">13:45 – 15:15</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">TOBIAS DELBRÜCK<br>ALESSANDRA SCIUTTI<br>PORAMATE MANOONPONG</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T14:15Z" data-end="2026-03-20T14:30Z">15:15 – 15:30</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">THILINA LALITHARATNE</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-20T14:30Z" data-end="2026-03-20T16:00Z">15:30 – 17:00</span>
+                      <span class="sb-desc">Coffee Break and Breakout Sessions<br><span class="sb-chair">Chair: YUE XIE, HUIJIANG WANG</span></span>
+                    </div>
+                  </div><!-- Day 2 -->
+
+                </div><!-- .sb-days-grid -->
+              </div><!-- .sb-body -->
+
+              <div class="sb-note">* Time Zone Transition: EUROPE 17:00 (UTC+1) = USA East 12:00 (UTC&#8722;4)</div>
+            </div><!-- .schedule-board -->
+
+            <hr class="wp-block-separator" />
+
+            <h2 class="wp-block-heading has-vivid-red-color has-text-color">USA EAST SESSIONS <small style="font-size:0.6em;font-weight:400;color:#888">— for participants in the UTC&#8722;4 region</small></h2>
+
+            <!-- ── USA East Schedule (HTML, timezone-aware) ──────── -->
+            <div class="schedule-board" data-orig-offset="-240" data-orig-label="UTC−4" data-orig-region="USA EAST">
+              <div class="tz-notice" style="display:none">
+                <span>🕐</span>
+                <span class="tz-notice-msg"></span>
+              </div>
+              <div class="sb-header">
+                <div class="sb-logo-col">
+                  <div class="sb-conf-badge">EI 2026</div>
+                  <div class="sb-conf-sub">EMBODIED INTELLIGENCE<br>ONLINE CONFERENCE<br>18–20 March 2026</div>
+                </div>
+                <div class="sb-title-col">
+                  <div class="sb-conf-title">Embodied Intelligence Conference'26</div>
+                  <div class="sb-tz-label">(TIME ZONE: <span class="sb-header-tz-val">UTC−4 USA EAST</span>)</div>
+                </div>
+                <div class="sb-tz-badge-col">
+                  <div class="sb-tz-badge red">TIME ZONE:<br><span class="sb-offset-val">UTC−4</span><br><span class="sb-region-val">USA EAST</span></div>
+                </div>
+              </div>
+
+              <div class="sb-body">
+                <div class="sb-sidebar" style="background:#a62020">Programme</div>
+                <div class="sb-days-grid">
+
+                  <!-- Day 1 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-19T16:00Z">19 MARCH 2026</div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T16:00Z" data-end="2026-03-19T16:15Z">12:00 – 12:15</span>
+                      <span class="sb-desc">Introduction<br><span class="sb-speaker">NANA OBAYASHI</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T16:15Z" data-end="2026-03-19T17:00Z">12:15 – 13:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">VALENTINA DI SANTO</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T17:00Z" data-end="2026-03-19T18:30Z">13:00 – 14:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">LUDOVIC RIGHETTI<br>YASEMIN OZKAN-AYDIN<br>PETROS KOUMOUTSAKOS<br>RYAN TRUBY</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T18:30Z" data-end="2026-03-19T20:00Z">14:30 – 16:00</span>
+                      <span class="sb-desc">Lunch &amp; Break-out Sessions<br><span class="sb-chair">Chair: SABA FIROUZNIA and MICHAEL ISHIDA</span></span>
+                    </div>
+
+                    <div class="sb-session-header">Evening Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T20:00Z" data-end="2026-03-19T20:45Z">16:00 – 16:45</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: YUE XIE</span><span class="sb-speaker">MAJA MATARIC</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T20:45Z" data-end="2026-03-19T22:15Z">16:45 – 18:15</span>
+                      <span class="sb-desc">Panel Talk:<br><span class="sb-speaker">JEAN HYAEJIN OH<br>JOSH BONGARD<br>HAVA SIEGELMANN<br>SHEILA MACRINE</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-19T22:15Z" data-end="2026-03-19T22:30Z">18:15 – 18:30</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">NANA OBAYASHI</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-19T22:30Z" data-end="2026-03-20T00:00Z">18:30 – 20:00</span>
+                      <span class="sb-desc">Coffee Break and Breakout Sessions<br><span class="sb-chair">Chair: XIANG WANG</span></span>
+                    </div>
+                  </div><!-- Day 1 -->
+
+                  <!-- Day 2 -->
+                  <div class="sb-day">
+                    <div class="sb-day-header" data-utc="2026-03-20T16:00Z">20 MARCH 2026</div>
+
+                    <div class="sb-session-header">Afternoon Session</div>
+
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T16:00Z" data-end="2026-03-20T16:15Z">12:00 – 12:15</span>
+                      <span class="sb-desc">Introduction<br><span class="sb-speaker">SAREUM KIM</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T16:15Z" data-end="2026-03-20T17:00Z">12:15 – 13:00</span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: ARSEN ABDULALI</span><span class="sb-speaker">JARED CREGG</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T17:00Z" data-end="2026-03-20T18:30Z">13:00 – 14:30</span>
+                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">BOYUAN CHEN<br>JOHN RIEFFEL<br>ANDRES F. ARRIETA</span></span>
+                    </div>
+                    <div class="sb-slot">
+                      <span class="sb-time" data-start="2026-03-20T18:30Z" data-end="2026-03-20T18:45Z">14:30 – 14:45</span>
+                      <span class="sb-desc">Closing Remarks<br><span class="sb-speaker">NANA OBAYASHI</span></span>
+                    </div>
+                    <div class="sb-slot sb-break">
+                      <span class="sb-time" data-start="2026-03-20T18:45Z" data-end="2026-03-20T20:15Z">14:45 – 16:15</span>
+                      <span class="sb-desc">Break-out Sessions<br><span class="sb-chair">Chair: ARSEN ABDULALI</span></span>
+                    </div>
+                  </div><!-- Day 2 -->
+
+                </div><!-- .sb-days-grid -->
+              </div><!-- .sb-body -->
+
+              <div class="sb-note">* Time Zone Transition: EUROPE 17:00 (UTC+1) = USA East 12:00 (UTC&#8722;4)</div>
+            </div><!-- .schedule-board -->
+
+            <hr class="wp-block-separator" />
+
+          </div><!-- .entry-content -->
+        </article>
+
+      </main><!-- #main -->
+    </div><!-- #primary -->
+  </div><!-- #content -->
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer id="colophon" class="site-footer" role="contentinfo">
+    <div id="tertiary">
+      <!-- Partner logos – 4-column grid matching original footer widget -->
+      <div class="wp-block-columns">
+
+        <div class="wp-block-column">
+          <div class="wp-block-image">
+            <figure class="aligncenter">
+              <img src="assets/logo_cambridge.jpg" alt="University of Cambridge" />
+            </figure>
+          </div>
+          <p class="has-text-align-center widget-logo-label">University of Cambridge</p>
+        </div>
+
+        <div class="wp-block-column">
+          <div class="wp-block-image">
+            <figure class="aligncenter">
+              <img src="assets/logo_tokyo.jpg" alt="University of Tokyo" />
+            </figure>
+          </div>
+          <p class="has-text-align-center widget-logo-label">University of Tokyo</p>
+        </div>
+
+        <div class="wp-block-column">
+          <div class="wp-block-image">
+            <figure class="aligncenter">
+              <img src="assets/logo_epfl.png" alt="EPFL" />
+            </figure>
+          </div>
+          <p class="has-text-align-center widget-logo-label">EPFL</p>
+        </div>
+
+        <div class="wp-block-column">
+          <div class="wp-block-image">
+            <figure class="aligncenter">
+              <img src="assets/logo_birl.jpg" alt="Bio-Inspired Robotics Laboratory" />
+            </figure>
+          </div>
+          <p class="has-text-align-center widget-logo-label">Bio-Inspired Robotics Laboratory</p>
+        </div>
+
+      </div><!-- .wp-block-columns -->
+    </div><!-- #tertiary -->
+
+    <div class="footer-bottom">
+      <span>Offline replica of <a href="https://embodied-intelligence.org/ei26-program/" target="_blank" rel="noreferrer">embodied-intelligence.org/ei26-program/</a> — saved 2026-03-17</span>
+      <span>Built on <a href="https://wordpress.com/" target="_blank" rel="noreferrer">WordPress.com</a></span>
+    </div>
+  </footer><!-- #colophon -->
+
+</div><!-- #page -->
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('primary-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('is-open', !open);
+    });
+  }
+
+  // ── Timezone-aware schedule ──────────────────────────────
+  (function () {
+    const LOCAL_TZ     = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const localOffMin  = -new Date().getTimezoneOffset();
+
+    // "UTC+8" or "UTC−4:30"
+    function offStr(min) {
+      const sign = min >= 0 ? '+' : '\u2212';
+      const h = Math.floor(Math.abs(min) / 60);
+      const m = Math.abs(min) % 60;
+      return 'UTC' + sign + h + (m ? ':' + String(m).padStart(2, '0') : '');
+    }
+
+    // HH:MM in an IANA timezone
+    function fmtTimeIana(iso, tz) {
+      return new Date(iso).toLocaleTimeString('en-GB', {
+        hour: '2-digit', minute: '2-digit', hour12: false, timeZone: tz
+      });
+    }
+
+    // HH:MM using a fixed UTC offset in minutes
+    function fmtTimeOff(iso, offMin) {
+      const s = new Date(new Date(iso).getTime() + offMin * 60000);
+      return String(s.getUTCHours()).padStart(2, '0') + ':' + String(s.getUTCMinutes()).padStart(2, '0');
+    }
+
+    // "19 MARCH 2026" in IANA tz
+    function fmtDateIana(iso, tz) {
+      return new Date(iso).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric', timeZone: tz
+      }).toUpperCase();
+    }
+
+    // "19 MARCH 2026" using fixed offset
+    function fmtDateOff(iso, offMin) {
+      const s = new Date(new Date(iso).getTime() + offMin * 60000);
+      return s.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
+    }
+
+    // Compute UTC offset (minutes) of an IANA tz at conference time
+    function ianaOffMin(tz) {
+      const ref = new Date('2026-03-19T12:00:00Z');
+      const loc = ref.toLocaleString('en-US', {
+        timeZone: tz, hour12: false,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      const [dp, tp] = loc.split(', ');
+      const [mo, da, yr] = dp.split('/');
+      return Math.round((new Date(yr + '-' + mo + '-' + da + 'T' + tp + 'Z') - ref) / 60000);
+    }
+
+    let mode      = 'local';
+    let customTz  = null;
+
+    function applyTz() {
+      document.querySelectorAll('.schedule-board[data-orig-offset]').forEach(function (board) {
+        const origOff    = parseInt(board.dataset.origOffset);
+        const origLabel  = board.dataset.origLabel;
+        const origRegion = board.dataset.origRegion;
+
+        var eff_tz, eff_off, eff_label, eff_region;
+        if (mode === 'local') {
+          eff_tz     = LOCAL_TZ;
+          eff_off    = localOffMin;
+          eff_label  = offStr(localOffMin);
+          eff_region = LOCAL_TZ.split('/').pop().replace(/_/g, ' ');
+        } else if (mode === 'original') {
+          eff_tz     = null;
+          eff_off    = origOff;
+          eff_label  = origLabel;
+          eff_region = origRegion;
+        } else {
+          eff_tz     = customTz;
+          eff_off    = ianaOffMin(customTz);
+          eff_label  = offStr(eff_off);
+          eff_region = customTz.split('/').pop().replace(/_/g, ' ');
+        }
+
+        // Time slots
+        board.querySelectorAll('.sb-time[data-start]').forEach(function (el) {
+          var s = eff_tz ? fmtTimeIana(el.dataset.start, eff_tz) : fmtTimeOff(el.dataset.start, eff_off);
+          var e = eff_tz ? fmtTimeIana(el.dataset.end,   eff_tz) : fmtTimeOff(el.dataset.end,   eff_off);
+          el.textContent = s + ' \u2013 ' + e;
+        });
+
+        // Day headers
+        board.querySelectorAll('.sb-day-header[data-utc]').forEach(function (el) {
+          el.textContent = eff_tz
+            ? fmtDateIana(el.dataset.utc, eff_tz)
+            : fmtDateOff(el.dataset.utc, eff_off);
+        });
+
+        // Badge & header label
+        board.querySelectorAll('.sb-offset-val').forEach(function (el) { el.textContent = eff_label; });
+        board.querySelectorAll('.sb-region-val').forEach(function (el) { el.textContent = eff_region; });
+        board.querySelectorAll('.sb-header-tz-val').forEach(function (el) {
+          el.textContent = eff_label + ' ' + eff_region;
+        });
+
+        // Notice banner
+        var notice = board.querySelector('.tz-notice');
+        if (notice) {
+          var show = false, msg = '';
+          if (mode === 'original') {
+            show = false;
+          } else if (mode === 'local') {
+            show = localOffMin !== origOff;
+            msg  = 'Times shown in your local timezone: ' + eff_label + ' (' + LOCAL_TZ + ')';
+          } else {
+            show = eff_off !== origOff;
+            msg  = 'Times shown in: ' + customTz + ' (' + eff_label + ')';
+          }
+          notice.style.display = show ? 'flex' : 'none';
+          if (show) notice.querySelector('.tz-notice-msg').textContent = msg;
+        }
+      });
+
+      // Switcher status label
+      var lbl = document.getElementById('tz-current-label');
+      if (lbl) {
+        if (mode === 'local') {
+          lbl.textContent = '(' + offStr(localOffMin) + ' \u00b7 ' + LOCAL_TZ + ')';
+        } else if (mode === 'original') {
+          lbl.textContent = '(each board in its own original timezone)';
+        } else {
+          lbl.textContent = '(' + offStr(ianaOffMin(customTz)) + ' \u00b7 ' + customTz + ')';
+        }
+      }
+    }
+
+    // Button handlers
+    var btnLocal    = document.getElementById('btn-local');
+    var btnOriginal = document.getElementById('btn-original');
+    var btnOther    = document.getElementById('btn-other');
+    var otherSelect = document.getElementById('tz-other-select');
+
+    function setActive(btn) {
+      [btnLocal, btnOriginal, btnOther].forEach(function (b) { if (b) b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+    }
+
+    if (btnLocal) btnLocal.addEventListener('click', function () {
+      mode = 'local'; otherSelect.classList.remove('visible'); setActive(btnLocal); applyTz();
+    });
+    if (btnOriginal) btnOriginal.addEventListener('click', function () {
+      mode = 'original'; otherSelect.classList.remove('visible'); setActive(btnOriginal); applyTz();
+    });
+    if (btnOther) btnOther.addEventListener('click', function () {
+      otherSelect.classList.toggle('visible');
+    });
+    if (otherSelect) otherSelect.addEventListener('change', function () {
+      if (otherSelect.value) {
+        mode = 'custom'; customTz = otherSelect.value; setActive(btnOther); applyTz();
+      }
+    });
+
+    applyTz(); // initialize
+  })();
+</script>
+</body>
+</html>
