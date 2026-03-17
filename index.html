@@ -292,6 +292,7 @@
     .accordion-body.open { display: block; }
 
     /* Masterclass table */
+    .mc-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .mc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
     .mc-table th { background: #2D2D2D; color: #fff; padding: 0.5rem 0.75rem; text-align: center; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
     .mc-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid #e8e8e8; vertical-align: middle; text-align: center; }
@@ -894,7 +895,7 @@
                     <span>🕐</span>
                     <span class="tz-notice-msg"></span>
                   </div>
-                  <table class="mc-table">
+                  <div class="mc-table-wrap"><table class="mc-table">
                     <thead>
                       <tr><th>Time</th><th>Section</th><th>Theme</th><th>Chair</th><th>Zoom</th></tr>
                     </thead>
@@ -990,7 +991,7 @@
                         </td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table></div>
                 </div>
               </div>
             </div>
