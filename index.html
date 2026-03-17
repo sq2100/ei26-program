@@ -2056,10 +2056,23 @@
     var btn     = document.getElementById('wechat-btn');
     var overlay = document.getElementById('wechat-modal-overlay');
     var close   = document.getElementById('wechat-modal-close');
-    btn.addEventListener('click', function () { overlay.classList.add('open'); });
+    btn.addEventListener('click', function () {
+      overlay.classList.add('open');
+      if (window.goatcounter) goatcounter.count({ path: 'click-wechat', title: 'WeChat QR' });
+    });
     close.addEventListener('click', function () { overlay.classList.remove('open'); });
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) overlay.classList.remove('open');
+    });
+
+    // Zoom & WhatsApp click tracking
+    var zoomBtn = document.querySelector('.join-btn');
+    if (zoomBtn) zoomBtn.addEventListener('click', function () {
+      if (window.goatcounter) goatcounter.count({ path: 'click-zoom', title: 'Join Zoom' });
+    });
+    var waBtn = document.querySelector('.wa-btn');
+    if (waBtn) waBtn.addEventListener('click', function () {
+      if (window.goatcounter) goatcounter.count({ path: 'click-whatsapp', title: 'WhatsApp Community' });
     });
   })();
 </script>
