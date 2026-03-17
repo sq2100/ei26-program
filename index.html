@@ -225,6 +225,139 @@
       box-shadow: 0 2px 16px rgba(0,0,0,0.10);
     }
 
+    /* ── Supplementary accordion ─────────────────────────────── */
+    .supplementary {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      padding: 0 1rem;
+    }
+
+    .supplementary h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.75rem;
+    }
+
+    .accordion-item {
+      border: 2px solid #2B72B4;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(43,114,180,0.12);
+    }
+
+    .accordion-toggle {
+      width: 100%;
+      background: linear-gradient(90deg, #2B72B4 0%, #1a4f8a 100%);
+      border: none;
+      padding: 0.9rem 1.2rem;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.02em;
+    }
+
+    .accordion-toggle:hover { background: linear-gradient(90deg, #1a4f8a 0%, #163f6e 100%); }
+
+    .accordion-toggle::after {
+      content: '▶ Click to expand';
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0.85;
+      white-space: nowrap;
+      margin-left: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .accordion-toggle.open::after {
+      content: '▼ Click to collapse';
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .accordion-body.open { display: block; }
+
+    /* Masterclass table */
+    .mc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .mc-table th { background: #2D2D2D; color: #fff; padding: 0.5rem 0.75rem; text-align: center; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .mc-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid #e8e8e8; vertical-align: middle; text-align: center; }
+    .mc-table tr:last-child td { border-bottom: none; }
+    .mc-table tr:hover td { background: #f7f7f7; }
+    .mc-table .mc-time { font-weight: 600; white-space: nowrap; color: #333; text-align: center; }
+    .mc-table .mc-session { line-height: 1.4; }
+    .mc-table .mc-session-id { font-size: 0.78rem; color: #666; display: block; }
+    .mc-table .mc-speaker { color: #c0392b; font-weight: 700; display: block; }
+    .mc-table .mc-theme { font-weight: 600; color: #1a1a1a; }
+    .mc-table td.mc-chair { color: #555; font-size: 0.82rem; }
+    .mc-table td a { color: #2B72B4; font-weight: 600; text-decoration: none; }
+    .mc-table td a:hover { text-decoration: underline; }
+    .mc-detail-toggle { background: none; border: 1px solid #bbb; border-radius: 4px; font-size: 0.7rem; color: #555; cursor: pointer; padding: 0.15rem 0.45rem; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem; }
+    .mc-detail-toggle:hover { background: #f0f0f0; border-color: #999; }
+    .mc-detail-toggle .mc-arrow { display: inline-block; transition: transform 0.2s; }
+    .mc-detail-toggle.open .mc-arrow { transform: rotate(90deg); }
+    .mc-details-row { display: none; }
+    .mc-details-row.open { display: table-row; }
+    .mc-details-row td { background: #fafafa !important; padding: 0.5rem 0.75rem !important; text-align: left; }
+    .mc-details-row:hover td { background: #fafafa !important; }
+    .mc-pres-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .mc-pres-item { font-size: 0.78rem; line-height: 1.35; }
+    .mc-pres-item .mc-pres-speaker { font-weight: 700; color: #c0392b; }
+    .mc-pres-item .mc-pres-inst { color: #888; font-size: 0.72rem; }
+
+    /* Breakout list */
+    .bo-day { font-size: 0.9rem; font-weight: 700; color: #fff; background: #2D2D2D; padding: 0.45rem 0.75rem; border-radius: 4px; margin: 1rem 0 0.6rem; letter-spacing: 0.04em; }
+    .bo-slot { margin-bottom: 1rem; }
+    .bo-slot-header { display: flex; align-items: baseline; gap: 0.75rem; background: #f0f4fa; border-left: 4px solid #2B72B4; padding: 0.4rem 0.75rem; border-radius: 0 4px 4px 0; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .bo-slot-time { font-weight: 700; color: #1a4f8a; white-space: nowrap; }
+    .bo-slot-chair { font-size: 0.8rem; color: #555; }
+    .bo-sessions { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+    .bo-sessions.dual { grid-template-columns: 1fr 1fr; }
+    .bo-session { border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+    .bo-session-chair { font-size: 0.78rem; font-weight: 600; color: #fff; background: #2B72B4; padding: 0.3rem 0.6rem; }
+    .bo-talk { padding: 0.45rem 0.6rem; border-bottom: 1px solid #f0f0f0; }
+    .bo-talk:last-child { border-bottom: none; }
+    .bo-talk-title { font-size: 0.8rem; color: #333; line-height: 1.35; margin-bottom: 0.15rem; }
+    .bo-speaker { font-size: 0.82rem; font-weight: 700; color: #c0392b; }
+    .bo-inst { font-size: 0.75rem; color: #888; }
+    @media (max-width: 767px) { .bo-sessions.dual { grid-template-columns: 1fr; } }
+
+    /* Region color themes for breakout accordion */
+    .accordion-item.region-asia  .accordion-toggle { background: linear-gradient(90deg, #5B2D8E 0%, #3d1f6e 100%); }
+    .accordion-item.region-asia  .accordion-toggle:hover { background: linear-gradient(90deg, #3d1f6e 0%, #2d1550 100%); }
+    .accordion-item.region-asia  .bo-slot-header { background: #f3eefa; border-left-color: #5B2D8E; }
+    .accordion-item.region-asia  .bo-slot-time { color: #5B2D8E; }
+    .accordion-item.region-asia  .bo-session-chair { background: #5B2D8E; }
+    .accordion-item.region-asia  .bo-day { background: #5B2D8E; }
+    .accordion-item.region-asia  { border-color: #5B2D8E; box-shadow: 0 2px 6px rgba(91,45,142,0.15); }
+
+    .accordion-item.region-europe .accordion-toggle { background: linear-gradient(90deg, #ff6900 0%, #cc5200 100%); }
+    .accordion-item.region-europe .accordion-toggle:hover { background: linear-gradient(90deg, #cc5200 0%, #a34200 100%); }
+    .accordion-item.region-europe .bo-slot-header { background: #fff4ed; border-left-color: #ff6900; }
+    .accordion-item.region-europe .bo-slot-time { color: #cc5200; }
+    .accordion-item.region-europe .bo-session-chair { background: #ff6900; }
+    .accordion-item.region-europe .bo-day { background: #cc5200; }
+    .accordion-item.region-europe { border-color: #ff6900; box-shadow: 0 2px 6px rgba(255,105,0,0.15); }
+
+    .accordion-item.region-usa .accordion-toggle { background: linear-gradient(90deg, #cf2e2e 0%, #a02424 100%); }
+    .accordion-item.region-usa .accordion-toggle:hover { background: linear-gradient(90deg, #a02424 0%, #7a1b1b 100%); }
+    .accordion-item.region-usa .bo-slot-header { background: #fdecea; border-left-color: #cf2e2e; }
+    .accordion-item.region-usa .bo-slot-time { color: #cf2e2e; }
+    .accordion-item.region-usa .bo-session-chair { background: #cf2e2e; }
+    .accordion-item.region-usa .bo-day { background: #cf2e2e; }
+    .accordion-item.region-usa { border-color: #cf2e2e; box-shadow: 0 2px 6px rgba(207,46,46,0.15); }
+
     /* ── Footer ───────────────────────────────────────────────── */
     .site-footer {
       background-color: #2D2D2D;
@@ -589,6 +722,21 @@
 
     .join-btn:hover { background: #a93226; }
 
+    .join-btn-sm {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.7rem;
+      background: #c0392b;
+      color: #fff !important;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .join-btn-sm:hover { background: #a93226; }
+
     .join-btn::before {
       content: '';
       display: inline-block;
@@ -768,6 +916,119 @@
 
             <hr class="wp-block-separator" />
 
+            <!-- ── Masterclass Accordion ─────────────────────────── -->
+            <div class="accordion-item" style="margin-bottom:1.5rem;">
+              <button class="accordion-toggle" aria-expanded="false">Masterclasses — March 18, 2026</button>
+              <p style="font-size:0.78rem;background:#fff8e1;border-left:3px solid #f59e0b;padding:0.4rem 0.75rem;margin:0;color:#78350f;">Each masterclass has its own separate Zoom link — use the Join button for the specific session you wish to attend.</p>
+              <div class="accordion-body">
+                <div class="schedule-board" data-orig-offset="540" data-orig-label="UTC+9" data-orig-region="ASIA">
+                  <div class="tz-notice" style="display:none">
+                    <span>🕐</span>
+                    <span class="tz-notice-msg"></span>
+                  </div>
+                  <table class="mc-table">
+                    <thead>
+                      <tr><th>Time</th><th>Section</th><th>Theme</th><th>Chair</th><th>Zoom</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="mc-time"><span class="sb-time" data-start="2026-03-18T06:00Z" data-end="2026-03-18T08:00Z" data-refdate="2026-03-18">15:00–17:00</span></td>
+                        <td class="mc-session">
+                          <span class="mc-session-id">MS1-1:</span>
+                          <span class="mc-speaker">Cecilia Laschi</span>
+                          <button class="mc-detail-toggle" data-target="mc-detail-1"><span class="mc-arrow">▶</span> Presentations</button>
+                        </td>
+                        <td class="mc-theme">Soft Robotics</td>
+                        <td class="mc-chair">Shao Qi</td>
+                        <td><a class="join-btn-sm" href="https://epfl.zoom.us/j/69396076687" target="_blank">Join</a></td>
+                      </tr>
+                      <tr class="mc-details-row" id="mc-detail-1">
+                        <td colspan="5">
+                          <div class="mc-pres-list">
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Yinglei Zhu</span> — EquiMus: Energy-Equivalent Dynamic Modeling and Simulation of Musculoskeletal Robots Driven by Linear Elastic Actuators <span class="mc-pres-inst">· Tsinghua University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Muhammad Razin Roslan</span> — Residual Learning for Sim-to-Real Design Optimization of Soft Robots <span class="mc-pres-inst">· Monash University Malaysia</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Shiqing Liu</span> — Bioinspired Milliscale Near-Boundary Undulatory Motion for Fluid Transport and Adhesive Locomotion <span class="mc-pres-inst">· Beihang University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Nicole Continelli</span> — Enhancing Analytical Inverse Kinematics in a Soft Robotic Neck via Neural Networks <span class="mc-pres-inst">· University Charles III of Madrid</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Petr Trunin</span> — Monolithic soft robots <span class="mc-pres-inst">· Istituto Italiano di Tecnologia</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Yunqi Huang</span> — Multi-Modal Sensing and Interaction Modelling for Soft Robots <span class="mc-pres-inst">· University College London</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="mc-time"><span class="sb-time" data-start="2026-03-18T10:00Z" data-end="2026-03-18T12:00Z" data-refdate="2026-03-18">19:00–21:00</span></td>
+                        <td class="mc-session">
+                          <span class="mc-session-id">MS1-2:</span>
+                          <span class="mc-speaker">Helmut Hauser</span>
+                        </td>
+                        <td class="mc-theme">Reservoir Computing</td>
+                        <td class="mc-chair">Kai-Fung Chu, Xiang Wang</td>
+                        <td><a class="join-btn-sm" href="https://epfl.zoom.us/j/68041566470" target="_blank">Join</a></td>
+                      </tr>
+                      <tr>
+                        <td class="mc-time"><span class="sb-time" data-start="2026-03-18T11:00Z" data-end="2026-03-18T12:30Z" data-refdate="2026-03-18">20:00–21:30</span></td>
+                        <td class="mc-session">
+                          <span class="mc-session-id">MS1-3:</span>
+                          <span class="mc-speaker">Fumiya Iida &amp; Michael Levin</span>
+                        </td>
+                        <td class="mc-theme">Embodied Programmable and Non-programmable Intelligence</td>
+                        <td class="mc-chair">Chapa Sirithunge</td>
+                        <td><a class="join-btn-sm" href="https://epfl.zoom.us/j/67686445047" target="_blank">Join</a></td>
+                      </tr>
+                      <tr>
+                        <td class="mc-time"><span class="sb-time" data-start="2026-03-18T11:00Z" data-end="2026-03-18T12:30Z" data-refdate="2026-03-18">20:00–21:30</span></td>
+                        <td class="mc-session">
+                          <span class="mc-session-id">MS1-4:</span>
+                          <span class="mc-speaker">Josh Bongard</span>
+                          <button class="mc-detail-toggle" data-target="mc-detail-4"><span class="mc-arrow">▶</span> Presentations</button>
+                        </td>
+                        <td class="mc-theme">Evolutionary Robotics</td>
+                        <td class="mc-chair">Yue Xie</td>
+                        <td><a class="join-btn-sm" href="https://epfl.zoom.us/j/64054849779" target="_blank">Join</a></td>
+                      </tr>
+                      <tr class="mc-details-row" id="mc-detail-4">
+                        <td colspan="5">
+                          <div class="mc-pres-list">
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Amiram Moshaiov</span> — Scenario-based Many Objective Topology and Weight Evolution of Neuro-controllers (joint work with Dr. Adham Salih) <span class="mc-pres-inst">· Tel-Aviv University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Yi Zhang</span> — Regime-Dependent Dominance of Morphology-Control Co-Design Under Energy Constraints <span class="mc-pres-inst">· Tianjin University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Leni Le Goff</span> — Speed-up evolution of robots design using intrinsic motivation <span class="mc-pres-inst">· Edinburgh Napier University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Ronnie Viedela</span> — What Makes a System Intelligent? Autonomy, Architectural Foresight, and the Limits of Embodied AI <span class="mc-pres-inst">· University of California Berkeley</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Gusz Eiben</span> — Real robot evolution <span class="mc-pres-inst">· Vrije Universiteit Amsterdam</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Robin Chhabra</span> — Embodied Evolutionary Self-Adaptation to Damage in Multi-Legged Robots <span class="mc-pres-inst">· Toronto Metropolitan University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Josh Pinsker</span> — — <span class="mc-pres-inst">· CSIRO</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="mc-time"><span class="sb-time" data-start="2026-03-18T16:00Z" data-end="2026-03-18T18:00Z" data-refdate="2026-03-18">01:00–03:00</span></td>
+                        <td class="mc-session">
+                          <span class="mc-session-id">MS1-5:</span>
+                          <span class="mc-speaker">Josie Hughes &amp; Perla Maiolino</span>
+                          <button class="mc-detail-toggle" data-target="mc-detail-5"><span class="mc-arrow">▶</span> Presentations</button>
+                        </td>
+                        <td class="mc-theme">How to Conduct Embodied Intelligence Research</td>
+                        <td class="mc-chair">Benhui Dai</td>
+                        <td><a class="join-btn-sm" href="https://epfl.zoom.us/j/66130361016" target="_blank">Join</a></td>
+                      </tr>
+                      <tr class="mc-details-row" id="mc-detail-5">
+                        <td colspan="5">
+                          <div class="mc-pres-list">
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Sarune Savickaite</span> — Embodied Intelligence for Diverse Minds: Including Neurodivergent Cognition in Zoomorphic Robot Research <span class="mc-pres-inst">· University of Exeter</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Wesley Clawson</span> — Quantifying Learning &amp; Intelligence in embodied neural cultures <span class="mc-pres-inst">· Tufts University</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Chuqi Huang</span> — Photochemical Fuel Carrier Molecules for Robotic Embodied Energy <span class="mc-pres-inst">· University of Michigan – Ann Arbor</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Jan Schneider</span> — Sim-to-Real Transfer for Muscle-Actuated Robots via Generalized Actuator Networks <span class="mc-pres-inst">· Max Planck Institute for Intelligent Systems, Tübingen</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Nicholas Wilkinson</span> — What is balance? A vital mechano-regulation paradigm <span class="mc-pres-inst">· Independent researcher</span></div>
+                            <div class="mc-pres-item"><span class="mc-pres-speaker">Niall Donnelly</span> — Do you see what I see?: A discussion regarding the nature of perception in embodied machine learners <span class="mc-pres-inst">· University of Exeter</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <hr class="wp-block-separator" />
+
             <h2 class="wp-block-heading has-vivid-purple-color has-text-color">ASIA SESSIONS <small style="font-size:0.6em;font-weight:400;color:#888">— for participants in the UTC+9 region</small></h2>
 
             <!-- ── Asia Schedule (HTML, timezone-aware) ─────────── -->
@@ -883,8 +1144,121 @@
                 </div><!-- .sb-days-grid -->
               </div><!-- .sb-body -->
 
-              <div class="sb-note">* Time Zone Transition: ASIA 17:00 (UTC+9) = EUROPE 09:00 (UTC+1)</div>
             </div><!-- .schedule-board -->
+
+            <!-- ── Asia Breakout Accordion ────────────────────────── -->
+            <div class="accordion-item region-asia" style="margin:1rem 0 1.5rem;">
+              <button class="accordion-toggle" aria-expanded="false">Break-out Sessions — Asia</button>
+              <div class="accordion-body">
+                <div class="schedule-board" data-orig-offset="540" data-orig-label="UTC+9" data-orig-region="ASIA">
+                  <div class="tz-notice" style="display:none"><span>🕐</span><span class="tz-notice-msg"></span></div>
+
+                  <!-- Day 1 -->
+                  <div class="bo-day">Day 1 — March 19, 2026</div>
+
+                  <div class="bo-slot">
+                    <div class="bo-slot-header">
+                      <span class="bo-slot-time sb-time" data-start="2026-03-19T02:30Z" data-end="2026-03-19T04:00Z">11:30–13:00</span>
+                      <span class="bo-slot-chair">Chair: Fan Ye, Shao-Qi</span>
+                    </div>
+                    <div class="bo-sessions">
+                      <div class="bo-session">
+                        <div class="bo-talk"><div class="bo-talk-title">Flexible-sensor guided hand-over-hand teaching enables imitation learning in a soft robotic hand</div><span class="bo-speaker">Youning Duo</span> <span class="bo-inst">— Beihang University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Audio-Visual Learning for Long-Horizon Bimanual Manipulation with Transformer</div><span class="bo-speaker">Ningquan Qu</span> <span class="bo-inst">— Tohoku University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">General purpose in nails</div><span class="bo-speaker">Jeffrey White</span> <span class="bo-inst">— OIST Neurorobotics</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">High-performance vision based tactile sensing design and application for grasping and dexterous manipulation</div><span class="bo-speaker">Yuebi Dong</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Regenerative Biohybrid Actuation: Yeast Silicone Living Muscles for Soft Robots</div><span class="bo-speaker">Aaron Choo</span> <span class="bo-inst">— Republic Polytechnic / SUTD</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Underwater soft arm grasping with simplified control using octopus-inspired bending propagation</div><span class="bo-speaker">Pengbo Li &amp; Jiafei Liu</span> <span class="bo-inst">— Beihang University / Tongji University</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bo-slot">
+                    <div class="bo-slot-header">
+                      <span class="bo-slot-time sb-time" data-start="2026-03-19T06:30Z" data-end="2026-03-19T08:00Z">15:30–17:00</span>
+                      <span class="bo-slot-chair">Parallel sessions</span>
+                    </div>
+                    <div class="bo-sessions dual">
+                      <div class="bo-session">
+                        <div class="bo-session-chair">Chair: Kai-Fung Chu</div>
+                        <div class="bo-talk"><div class="bo-talk-title">Double-Layer Self-Locking Origami Based on Opposite Folding Motion</div><span class="bo-speaker">Jae-Kyeong Kim</span> <span class="bo-inst">— Seoul National University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Hydrodynamic-Informed Soft-Motion Estimation and Schooling behavior of Fish Robots via BioInspira; Lateral Line Sensing</div><span class="bo-speaker">Jingren Zhang</span> <span class="bo-inst">— Zhejiang University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Platform-mapping capable robots capable of 2D collective mobility</div><span class="bo-speaker">Yunje Zhang</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Millimeter-scale fluid-driven soft robotics</div><span class="bo-speaker">Rong Bian</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">General purpose zero-shot robotic manipulation with agentic operational graph</div><span class="bo-speaker">Kazashi Nakano</span> <span class="bo-inst">— University of Tokyo</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Reservoir Computing on Mobile Swarm Dynamical Systems</div><span class="bo-speaker">Haichao Liu</span> <span class="bo-inst">— Nanyang Technological University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Multimode Pneumatic Artificial Muscles Driven by Hybrid Positive-Negative Pressure</div><span class="bo-speaker">Siyang Feng</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Design and fabrication of string-driven origami structures and robots</div><span class="bo-speaker">Dezhi Yang</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Modeling Clinicians' Catheterization Natural Skills and Procedural Outcomes</div><span class="bo-speaker">Peiwen Yang</span> <span class="bo-inst">— Tsinghua University</span></div>
+                      </div>
+                      <div class="bo-session">
+                        <div class="bo-session-chair">Chair: Shao Qi</div>
+                        <div class="bo-talk"><div class="bo-talk-title">Beyond Traversing in a Thin Pipe: Self-Sensing Odometry of a Pipeline Robot Driven by High-Frequency Dielectric Elastomer Actuators</div><span class="bo-speaker">Ran Cheng</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Enhancing the Energy Conversion Efficiency of Dielectric Elastomer Generators via Elastic Energy Storage and Recovery</div><span class="bo-speaker">Zhong Wang</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Soft robots enabled by high-performance artificial muscles</div><span class="bo-speaker">Xiaotian Shi</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Light-driven Phoo-net soft gripper</div><span class="bo-speaker">Youliyun Kim</span> <span class="bo-inst">— University of Tokyo</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Proprioception of Soft Robotic Manipulators</div><span class="bo-speaker">Yusuf Adamu</span> <span class="bo-inst">— Khalifa University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">A Vision-Based Underwater Tactile Sensor</div><span class="bo-speaker">Qiyi Zhang</span> <span class="bo-inst">— Beihang University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Physical Reservoir Computing for Abdominal palpation Simulation</div><span class="bo-speaker">Varun Chavan</span> <span class="bo-inst">— Institute of Science Tokyo</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">—</div><span class="bo-speaker">Welei Chen</span> <span class="bo-inst">— Beihang University</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Day 2 -->
+                  <div class="bo-day">Day 2 — March 20, 2026</div>
+
+                  <div class="bo-slot">
+                    <div class="bo-slot-header">
+                      <span class="bo-slot-time sb-time" data-start="2026-03-20T02:30Z" data-end="2026-03-20T04:00Z">11:30–13:00</span>
+                      <span class="bo-slot-chair">Chair: Tatsuya Dakoku, Shao-Qi</span>
+                    </div>
+                    <div class="bo-sessions">
+                      <div class="bo-session">
+                        <div class="bo-talk"><div class="bo-talk-title">Multimodal Interaction Localization for Embodied AI leveraging learning in soft hands</div><span class="bo-speaker">Junyi Ma</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">FlexSeal: Passive Valve Suction for FlexBot; One-way Flow Object Attachment and Release</div><span class="bo-speaker">Phuong Nam Dam</span> <span class="bo-inst">— Japan Advanced Institute of Science and Technology</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Dense semantic mapping and scene understanding</div><span class="bo-speaker">Sting Zhu</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Effect of Frequency Ratio and Phase Difference Caused by Elastic Ligaments; Contact on Impulse and Energy Transfer from Leg to Ball</div><span class="bo-speaker">Yudai Yamamoto</span> <span class="bo-inst">— Tokyo University of Agriculture and Technology</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Biomimetic Boundary Undulatory Motion for Fluid Transport and Adhesive Locomotion</div><span class="bo-speaker">Naomichi Mizutani</span> <span class="bo-inst">— University of Cambridge</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">From Physical Reservoir Computing to Control: Forming Natural Homeostatic in Robots</div><span class="bo-speaker">Shiping Liu</span> <span class="bo-inst">— Beihang University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Physical Reservoir Computing for Abdominal palpation Simulation</div><span class="bo-speaker">Fan Ye</span> <span class="bo-inst">— University of Cambridge</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Bioinspired robotics and biomedical material</div><span class="bo-speaker">Pooja Bhatt</span> <span class="bo-inst">— Indira Gandhi Delhi Technical University for Women</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bo-slot">
+                    <div class="bo-slot-header">
+                      <span class="bo-slot-time sb-time" data-start="2026-03-20T06:30Z" data-end="2026-03-20T08:00Z">15:30–17:00</span>
+                      <span class="bo-slot-chair">Parallel sessions</span>
+                    </div>
+                    <div class="bo-sessions dual">
+                      <div class="bo-session">
+                        <div class="bo-session-chair">Chair: Benhui Dai</div>
+                        <div class="bo-talk"><div class="bo-talk-title">Complex Intelligence with Complex Dynamical Systems</div><span class="bo-speaker">Srikanth Kavirayani</span> <span class="bo-inst">— Gayatri Vidya Parishad College of Engineering</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">GeoTrustRover: A Continuously-Reconfigurable Wheeled VGT Robot for Discrete Terrain Traversal</div><span class="bo-speaker">Moyuan Ma</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">LLM-Guided Reactive Packing with Physics-Aware Stability Verification</div><span class="bo-speaker">Ulugbek Tuxtapulatov</span> <span class="bo-inst">— Kimyo International University in Tashkent</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Reservoir Computing on Mobile Swarm Dynamical Systems</div><span class="bo-speaker">Yanjun Zhou</span> <span class="bo-inst">— Southeast University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Multimode Pneumatic Artificial Muscles Driven by Hybrid Positive-Negative Pressure</div><span class="bo-speaker">Siyang Feng</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Fabric-based soft robots: from powerful artificial muscles to embedded logic</div><span class="bo-speaker">Dezhi Yang</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Modeling Clinicians' Catheterization Natural Skills and Procedural Outcomes</div><span class="bo-speaker">Olatunji Omisore</span> <span class="bo-inst">— Central Queensland University</span></div>
+                      </div>
+                      <div class="bo-session">
+                        <div class="bo-session-chair">Chair: Jerry Xu</div>
+                        <div class="bo-talk"><div class="bo-talk-title">Advancing Soft Embodied Intelligence: From Multi-material Mechanical Bonding to High-Resilience Bio-muscle</div><span class="bo-speaker">Renbo Su</span> <span class="bo-inst">— Fudan University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Enhancing the Energy Conversion Efficiency of Dielectric Elastomer Generators via Elastic Energy Storage and Recovery</div><span class="bo-speaker">Zhong Wang</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Cryogenic printing of three-dimensional hydrogel machines</div><span class="bo-speaker">Jiahao Li</span> <span class="bo-inst">— Shanghai Jiao Tong University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">A dynamic modeling framework of a dielectric elastomer actuator miniature pump for enhanced power density</div><span class="bo-speaker">Hanying Shen</span> <span class="bo-inst">— Tsinghua University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">Tactile Humanoid Robotic: Toward Safe Physical Interaction and Medical Assistance</div><span class="bo-speaker">Yu Sun</span> <span class="bo-inst">— Zhejiang University</span></div>
+                        <div class="bo-talk"><span class="bo-speaker">Shuo Zhang</span> <span class="bo-inst">— Beihang University</span></div>
+                        <div class="bo-talk"><div class="bo-talk-title">TacGen: Tactile Sensory Data Generation via Zero-Shot Sim-to-Real Transfer</div><span class="bo-speaker">Shezhong Zhong</span> <span class="bo-inst">— University of Oxford</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
 
             <hr class="wp-block-separator" />
 
@@ -1003,7 +1377,6 @@
                 </div><!-- .sb-days-grid -->
               </div><!-- .sb-body -->
 
-              <div class="sb-note">* Time Zone Transition: EUROPE 17:00 (UTC+1) = USA East 12:00 (UTC&#8722;4)</div>
             </div><!-- .schedule-board -->
 
             <hr class="wp-block-separator" />
@@ -1108,7 +1481,6 @@
                 </div><!-- .sb-days-grid -->
               </div><!-- .sb-body -->
 
-              <div class="sb-note">* Time Zone Transition: EUROPE 17:00 (UTC+1) = USA East 12:00 (UTC&#8722;4)</div>
             </div><!-- .schedule-board -->
 
             <hr class="wp-block-separator" />
@@ -1267,7 +1639,19 @@
         board.querySelectorAll('.sb-time[data-start]').forEach(function (el) {
           var s = eff_tz ? fmtTimeIana(el.dataset.start, eff_tz) : fmtTimeOff(el.dataset.start, eff_off);
           var e = eff_tz ? fmtTimeIana(el.dataset.end,   eff_tz) : fmtTimeOff(el.dataset.end,   eff_off);
-          el.textContent = s + ' \u2013 ' + e;
+          var text = s + ' \u2013 ' + e;
+          if (el.dataset.refdate) {
+            var localDate = eff_tz
+              ? new Date(el.dataset.start).toLocaleDateString('en-CA', { timeZone: eff_tz })
+              : (function() { var d = new Date(new Date(el.dataset.start).getTime() + eff_off * 60000); return d.getUTCFullYear() + '-' + String(d.getUTCMonth()+1).padStart(2,'0') + '-' + String(d.getUTCDate()).padStart(2,'0'); })();
+            if (localDate !== el.dataset.refdate) {
+              var label = eff_tz
+                ? new Date(el.dataset.start).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: eff_tz })
+                : (function() { var d = new Date(new Date(el.dataset.start).getTime() + eff_off * 60000); return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); })();
+              text += ' (' + label + ')';
+            }
+          }
+          el.textContent = text;
         });
 
         // Day headers
@@ -1287,18 +1671,16 @@
         // Notice banner
         var notice = board.querySelector('.tz-notice');
         if (notice) {
-          var show = false, msg = '';
+          var msg = '';
           if (mode === 'original') {
-            show = false;
+            msg = 'Times shown in: ' + eff_label + ' ' + eff_region;
           } else if (mode === 'local') {
-            show = localOffMin !== origOff;
-            msg  = 'Times shown in your local timezone: ' + eff_label + ' (' + LOCAL_TZ + ')';
+            msg = 'Times shown in your local timezone: ' + eff_label + ' (' + LOCAL_TZ + ')';
           } else {
-            show = eff_off !== origOff;
-            msg  = 'Times shown in: ' + customTz + ' (' + eff_label + ')';
+            msg = 'Times shown in: ' + customTz + ' (' + eff_label + ')';
           }
-          notice.style.display = show ? 'flex' : 'none';
-          if (show) notice.querySelector('.tz-notice-msg').textContent = msg;
+          notice.style.display = 'flex';
+          notice.querySelector('.tz-notice-msg').textContent = msg;
         }
       });
 
@@ -1343,6 +1725,26 @@
 
     applyTz(); // initialize
   })();
+</script>
+<script>
+  document.querySelectorAll('.mc-detail-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var row = document.getElementById(this.dataset.target);
+      var open = row.classList.toggle('open');
+      this.classList.toggle('open', open);
+    });
+  });
+
+  document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var body = this.closest('.accordion-item').querySelector('.accordion-body');
+      var isOpen = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      this.classList.toggle('open', !isOpen);
+      this.setAttribute('aria-expanded', !isOpen);
+    });
+  });
 </script>
 </body>
 </html>
