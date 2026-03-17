@@ -293,6 +293,18 @@
 
     /* Masterclass table */
     .mc-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    @media (max-width: 600px) {
+      .mc-table-wrap { overflow-x: unset; }
+      .mc-table thead { display: none; }
+      .mc-table > tbody > tr:not(.mc-details-row) { display: block; background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; margin-bottom: 0.75rem; }
+      .mc-table > tbody > tr:not(.mc-details-row) td { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.35rem 0.75rem; border: none; text-align: left !important; }
+      .mc-table > tbody > tr:not(.mc-details-row) td::before { font-weight: 700; font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; min-width: 3.8rem; flex-shrink: 0; }
+      .mc-table td.mc-time::before { content: "Time"; }
+      .mc-table td.mc-session::before { content: "Speaker"; }
+      .mc-table td.mc-theme::before { content: "Theme"; }
+      .mc-table td.mc-chair::before { content: "Chair"; }
+      .mc-table > tbody > tr:not(.mc-details-row) td:last-child::before { content: "Zoom"; }
+    }
     .mc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
     .mc-table th { background: #2D2D2D; color: #fff; padding: 0.5rem 0.75rem; text-align: center; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
     .mc-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid #e8e8e8; vertical-align: middle; text-align: center; }
