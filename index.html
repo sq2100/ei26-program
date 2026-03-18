@@ -614,9 +614,10 @@
     .sb-desc { color: #333; }
 
     .sb-speaker {
-      display: block;
+      display: inline;
       font-weight: 700;
       color: #8B1A1A;
+      vertical-align: middle;
     }
 
     .sb-chair {
@@ -633,6 +634,14 @@
       color: #666;
       font-style: italic;
     }
+
+    .sb-talk-toggle { background: none; border: 1px solid #bbb; border-radius: 4px; font-size: 0.7rem; color: #555; cursor: pointer; padding: 0.05rem 0.4rem; margin-left: 0.4rem; display: inline-flex; align-items: center; gap: 0.2rem; line-height: 1; vertical-align: middle; }
+    .sb-talk-toggle:hover { background: #f0f0f0; border-color: #999; }
+    .sb-talk-toggle .sb-talk-arrow { display: inline-block; transition: transform 0.2s; font-size: 0.5rem; }
+    .sb-talk-toggle.open .sb-talk-arrow { transform: rotate(90deg); }
+    .sb-talk-detail { display: block; max-height: 0; overflow: hidden; margin-top: 0; padding: 0 0.75rem; background: #fafafa; border: 0 solid #e8e8e8; border-radius: 4px; font-size: 0.78rem; color: #333; line-height: 1.5; transition: max-height 0.25s ease, padding 0.25s ease, border-width 0.25s ease, margin-top 0.25s ease; }
+    .sb-talk-detail.open { max-height: 2000px; padding: 0.6rem 0.75rem; border-width: 1px; margin-top: 0.4rem; }
+    .sb-talk-title { font-weight: 700; color: #1a3a6a; margin-bottom: 0.4rem; }
 
     .sb-tz-badge.orange { background: #c85a00; }
     .sb-tz-badge.red    { background: #a62020; }
@@ -1203,7 +1212,25 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T01:00Z" data-end="2026-03-19T02:30Z">10:00 – 11:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">PABLO VALDIVIA Y ALVARADO<br>SHINICHI FURUYA<br>GURSEL ALICI</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">PABLO VALDIVIA Y ALVARADO</span>
+                        <button class="sb-talk-toggle" data-target="talk-pablo-valdivia"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-pablo-valdivia">
+                          <div class="sb-talk-title">Reservoir-Enabled Materials-Based Robotics (REMBots)</div>
+                          How do we design a robot body that is the best mechanical computer for a given task? This talk presents a systematic methodology for REMBots, soft robots whose body structure functions as a physical reservoir. A seven-step protocol characterizes reservoir quality and multi-material fabrication closes the loop from target dynamics to physical realization. A 3D-printed elastomeric whisker reservoir is tested in a soft gripper to demonstrate the full pipeline: object-size separability, sub-50 ms force control, and one-shot readout training with no contact model.
+                        </div>
+                        <span class="sb-speaker">SHINICHI FURUYA</span>
+                        <button class="sb-talk-toggle" data-target="talk-shinichi-furuya"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-shinichi-furuya">
+                          <div class="sb-talk-title">Overcoming the Limit of Sensorimotor Skills of Expert Musicians</div>
+                          After extensive training over years, musicians suffer from the learning plateau. However, we found sensorimotor training being capable of improving the overlearnt skills. In this talk, we will introduce how such training yields neuroplastic adaptation of the sensorimotor system of expert musicians.
+                        </div>
+                        <span class="sb-speaker">GURSEL ALICI</span>
+                        <button class="sb-talk-toggle" data-target="talk-gursel-alici"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-gursel-alici">
+                          <div class="sb-talk-title">Multi-Modal Sensing for Prosthetic Hands with Embodied Intelligence</div>
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot sb-break">
                       <span class="sb-time" data-start="2026-03-19T02:30Z" data-end="2026-03-19T04:00Z">11:30 – 13:00</span>
@@ -1214,11 +1241,25 @@
 
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T04:00Z" data-end="2026-03-19T04:45Z">13:00 – 13:45</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: JERRY XU</span><span class="sb-speaker">ANZHU GAO</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: JERRY XU</span><span class="sb-speaker">ANZHU GAO</span>
+                        <button class="sb-talk-toggle" data-target="talk-anzhu-gao"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-anzhu-gao">
+                          <div class="sb-talk-title">Small-Scale Flexible Continuum Robots for Intelligent Surgical Treatments</div>
+                          Flexible continuum surgical robots are rapidly establishing themselves as a pivotal direction in intelligent minimally invasive intervention and treatment, owing to their superior dexterity and adaptability within narrow, complex anatomical lumens. Grounded in the paradigm of embodied intelligence, which highlights the deep coupling between sensing and action and the interaction between a robot's body and its environment, this report explores key developments in intelligent perception, motion control, and human–robot collaboration in realistic interventional scenarios. Embodied intelligence drives robotic systems beyond passive execution toward active adaptation in response to the physical constraints and uncertainties of surgical environments. In this talk, I will present our four representative works: Structure-Enabled Robotic Bending Anisotropy of Endoluminal Treatment; Fiber-Enabled Multi-Actuation Multiplexing for Macro-Micro Motions; Structure-Enabled Actuation-Sensing Integration for Robotic Microsurgery; Fiber-Enabled Actuation-Sensing Multiplexing for Whole-Body Contact Sensing. Together, these studies illustrate a unified framework in which structural design and physical intelligence are co-optimized to advance the next generation of embodied continuum flexible robots.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T04:45Z" data-end="2026-03-19T06:15Z">13:45 – 15:15</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">GUO DI<br>XINYU LIU</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">GUO DI</span>
+                        <button class="sb-talk-toggle" data-target="talk-guo-di"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-guo-di">
+                          <div class="sb-talk-title">A Planar Electrical Capacitance Tomography Sensor and Its Practical Applications</div>
+                          Electrical capacitance tomography (ECT) provides non-contact, real-time proximity sensing by reconstructing dielectric permittivity distributions from capacitance measurements. This contactless technique enables the robot to perceive its surroundings before physical contact, delivering a non-invasive solution for safer human–robot and robot–environment interactions. In this talk, we introduce the design of a planar ECT sensor and discuss its practical deployment in robotic systems.
+                        </div>
+                        <span class="sb-speaker">XINYU LIU</span>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T06:15Z" data-end="2026-03-19T06:30Z">15:15 – 15:30</span>
@@ -1242,11 +1283,30 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T00:15Z" data-end="2026-03-20T01:00Z">09:15 – 10:00</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">HITOSHI AONUMA</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">HITOSHI AONUMA</span>
+                        <button class="sb-talk-toggle" data-target="talk-hitoshi-aonuma"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-hitoshi-aonuma">
+                          <div class="sb-talk-title">Embodied Latch Systems: Mechanical Intelligence for Ultra-Fast Movement in Insects</div>
+                          Intelligence is often attributed to neural computation. Yet in biological systems, morphology itself can perform essential control functions. How do insects achieve ultra-fast ballistic movements despite intrinsic limits of neural transmission and muscle contraction? Using the trap-jaw ant Odontomachus kuroiwae, we demonstrate that ultra-fast predatory strikes and mandible-powered escape jumps are enabled by embodied latch–spring architectures integrated into the mandible joint. The angular velocity of mandibular closure reaches 2.3 × 10⁴ rad/s, far exceeding the limit of direct muscle-driven motion. X-ray micro-imaging reveals a fine-structured latch system forming a ball-joint architecture that stabilizes elastic energy storage prior to release. The latch acts as a physical gating mechanism, transforming slow muscular contraction into explosive ballistic output. These findings suggest that ultra-fast movement does not require faster neural control, but rather the redistribution of control into morphology itself. The embodied mechanical intelligence observed in O. kuroiwae illustrates how structure can store, stabilize, and trigger energy release, reducing computational burden while enhancing performance. This biological design principle provides insight into morphological computation and offers inspiration for the development of energy-efficient, high-performance embodied robotic systems.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T01:00Z" data-end="2026-03-20T02:30Z">10:00 – 11:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">HUICHAN ZHAO<br>JE-SUNG KOH</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">HUICHAN ZHAO</span>
+                        <button class="sb-talk-toggle" data-target="talk-huichan-zhao"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-huichan-zhao">
+                          <div class="sb-talk-title">Soft Robotics and the Path to Embodied Intelligence</div>
+                          The concept of embodied intelligence offers a profound shift in perspective: intelligence is not just a product of the "brain", but emerges from the physical interaction between the body and its environment. From a soft robotics point of view, this is not just a philosophical idea, but a practical engineering principle that is redefining how we design and build robots. In this talk, I will present our group's recent advancements in core soft robotic technologies and demonstrate how they are paving the way for physically intelligent systems. I will begin by discussing our work on high-performance artificial muscles, the fundamental building blocks for compliant and life-like motion. I will then show a dexterous soft hand, capable of adaptive and delicate manipulation—a task where the hand's inherent compliance performs much of the computational work of grasping. Shifting from manipulation to locomotion, I will also present our development of a soft pipeline inspection robot, a system whose compliant body allows it to navigate and adapt to complex, unstructured environments with minimal control input. Finally, I will synthesize these projects to offer my perspective on how soft robots can uniquely contribute to the realization of embodied intelligence. By leveraging morphological computation and physical intelligence, we can move beyond traditional rigid robots to create machines that are not only more resilient and adaptable, but also fundamentally more intelligent in their interaction with the world.
+                        </div>
+                        <span class="sb-speaker">JE-SUNG KOH</span>
+                        <button class="sb-talk-toggle" data-target="talk-je-sung-koh"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-je-sung-koh">
+                          <div class="sb-talk-title">Mechanical Intelligence-Based Biologically Inspired Micro Robots and Its Applications</div>
+                          Mechanical Intelligence is the ability of the physical mechanisms or robotic structures that can respond to changes in the environment, and to perform complex actions and movements without precise feedback control. Material properties and structural design of the mechanisms with mechanical intelligence may help simplify the system and improve efficiency and productivity. I will present an mechanical intelligence-based design and manufacture of robots from folded sheets of novel "smart" materials, such as the composite plastic, the metallic glass, and various soft polymers including continuum materials and fabrics. The primary advantages of folded robot design are that the inherent accessibility and low cost of the method permits designers to get design feedback early and often via fast prototyping cycles. While prototyping is relatively fast, the complexity of multi-layer articulated designs can be time-consuming and unwieldy to design. Using the folding structure, we can mimic organisms in nature and abstract principles for robotic applications. Today's talk shows the robot design with mechanical intelligence based on kinematics and dynamics of the mechanisms that are inspired by nature. These folded robots can meet the demand for an economical robotic platform for both commercial and research applications. By combining this new methodology with mechanical intelligence-based designs, robot performance can be improved to an extraordinary degree, even better than the performance of natural organisms that have evolved unbelievable mechanical abilities.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot sb-break">
                       <span class="sb-time" data-start="2026-03-20T02:30Z" data-end="2026-03-20T04:00Z">11:30 – 13:00</span>
@@ -1257,11 +1317,30 @@
 
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T04:00Z" data-end="2026-03-20T04:45Z">13:00 – 13:45</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: TATSUYA DAIKOKU</span><span class="sb-speaker">SHUGUANG LI</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: TATSUYA DAIKOKU</span><span class="sb-speaker">SHUGUANG LI</span>
+                        <button class="sb-talk-toggle" data-target="talk-shuguang-li"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-shuguang-li">
+                          <div class="sb-talk-title">Swarm Robotics Inspired by Collective Cell Migration</div>
+                          Most robotic systems today require some level of centralized control or rely on deterministic behavior, which limits their resilience and scalability. Drawing inspiration from collective cell migration in biology, we introduced an alternative paradigm called "particle robotics." Even though these robots exhibit stochastic movement and lack direct control over their constituent particles (cells), both physical robots with up to two dozen particles and simulated robots with up to 100,000 cells demonstrate sophisticated collective behaviors, such as phototaxis. More recently, we developed a diatom-inspired robotic colony that investigates group coordination through minimal physical interaction. The modules in this colony, called BarBots, lack individual mobility and explicit communication, yet they achieve collective behaviors by sliding along neighboring units. Additionally, we created a shape-shifting robot named TriHex, which can transition between triangular and hexagonal shapes with a single motor. Despite its simple design, collectives of TriHex units display impressive behavioral diversity through two primary control parameters: system configuration and shape-shifting phase.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T04:45Z" data-end="2026-03-20T06:15Z">13:45 – 15:15</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">TATSUYA DAIKOKU<br>JERRY XU</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">TATSUYA DAIKOKU</span>
+                        <button class="sb-talk-toggle" data-target="talk-tatsuya-daikoku"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-tatsuya-daikoku">
+                          <div class="sb-talk-title">Embodied Emotion for Music Prediction</div>
+                          Music has long been recognized as a powerful trigger of embodied emotion. Recent advances suggest that the brain's predictive processing plays a central role in generating musical emotions and their bodily correlates. However, the cognitive mechanisms linking predictive processes to embodied emotional experience remain poorly understood. In this presentation, I introduce our recent findings on how the perception of musical chords evokes emotional and bodily responses through predictive dynamics. Using body-mapping experiments with 527 participants who listened to various chord progressions, we quantified how temporal fluctuations in musical uncertainty and surprise relate to specific bodily sensations and affective experiences. Our results show that chord sequences characterized by distinctive temporal dynamics of uncertainty and surprise evoke pronounced sensations particularly in the cardiac and abdominal regions. Furthermore, the intensity of cardiac sensations was positively associated with emotional valence and perceived beauty. These findings suggest that embodied emotion in music emerges from a hierarchical interplay between predictive uncertainty and musical surprise. More broadly, this work provides a theoretical framework for understanding how music integrates cognitive prediction and bodily feeling to generate emotional experience.
+                        </div>
+                        <span class="sb-speaker">JERRY XU</span>
+                        <button class="sb-talk-toggle" data-target="talk-jerry-xu"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-jerry-xu">
+                          <div class="sb-talk-title">Towards Civil Engineering Structures with Embodied Intelligence</div>
+                          As the widely acknowledged oldest engineering discipline in human history, civil engineering has enabled the creation of countless large-scale structures in the world, including buildings, infrastructure (e.g., roads, bridges, tunnels, etc.), and auxiliary structures serving various human needs. The construction of these structures has completely changed the world but also contributed to critical sustainability challenges hindering continued human growth and prosperity, such as climate change, natural disasters, and energy shortages. What should future civil engineering structures be like to tackle these challenges, and how can we design and manufacture them? Can a building or a bridge be a robot? This talk brings the idea of embodied intelligence in robot design and control into civil engineering structures and discusses its potential forms, challenges, and roadmap.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T06:15Z" data-end="2026-03-20T06:30Z">15:15 – 15:30</span>
@@ -1429,11 +1508,36 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T08:15Z" data-end="2026-03-19T09:00Z">09:15 – 10:00</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">PIERRE-THOMAS BRUN</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">PIERRE-THOMAS BRUN</span>
+                        <button class="sb-talk-toggle" data-target="talk-pierre-thomas-brun"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-pierre-thomas-brun">
+                          <div class="sb-talk-title">Gesture: Visible Action as Utterance (2004)</div>
+                          This talk explores how slender structures, such as elastic rods, can act as minimal building blocks for autonomous yet programmable matter. I will review recent work on the collective dynamics that arise when active particles are coupled to soft, deformable elastic beams. I will demonstrate how elasticity provides a powerful feedback mechanism, shaping both the internal dynamics of these systems and their interactions with the environment. I will conclude by showing how such elasto-active units can display primitive forms of building, whereby complex structures emerge from local, decentralized interactions.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T09:00Z" data-end="2026-03-19T10:30Z">10:00 – 11:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">MATEJ HOFFMANN<br>BARBARA MAZZOLAI<br>FEDERICO RENDA</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">MATEJ HOFFMANN</span>
+                        <button class="sb-talk-toggle" data-target="talk-matej-hoffmann"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-matej-hoffmann">
+                          <div class="sb-talk-title">Embodied AI in Machine Learning – Is it Really Embodied?</div>
+                          This talk examines embodied AI in modern machine learning and questions whether large-scale models can truly ground intelligence in physical embodiment. It discusses the grounding problem in robotics and LLM-based systems.
+                        </div>
+                        <span class="sb-speaker">BARBARA MAZZOLAI</span>
+                        <button class="sb-talk-toggle" data-target="talk-barbara-mazzolai"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-barbara-mazzolai">
+                          <div class="sb-talk-title">Energy as Embodiment: Toward Sustainable Soft Robotics</div>
+                          This talk explores how energy can be integrated into embodiment in soft robotics. By leveraging environmental energy sources such as light, heat, and humidity, robots can achieve sustainable and adaptive behaviour.
+                        </div>
+                        <span class="sb-speaker">FEDERICO RENDA</span>
+                        <button class="sb-talk-toggle" data-target="talk-federico-renda"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-federico-renda">
+                          <div class="sb-talk-title">A Differentiable Geometric Framework for Low-Order Dynamic Modeling of Soft Robots and Muscular Hydrostats</div>
+                          This talk introduces a differentiable geometric framework for hybrid soft–rigid robotic systems and presents reduced-order modeling strategies that retain dynamic fidelity while lowering computational cost.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot sb-break">
                       <span class="sb-time" data-start="2026-03-19T10:30Z" data-end="2026-03-19T12:00Z">11:30 – 13:00</span>
@@ -1444,11 +1548,29 @@
 
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T12:00Z" data-end="2026-03-19T12:45Z">13:00 – 13:45</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: PERLA MAIOLINO</span><span class="sb-speaker">HEDAN BAI</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: PERLA MAIOLINO</span><span class="sb-speaker">HEDAN BAI</span>
+                        <button class="sb-talk-toggle" data-target="talk-hedan-bai"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-hedan-bai">
+                          <div class="sb-talk-title">Multifunctional, Adaptive, and Sustainable Robotic Materials Towards General Utility</div>
+                          Artificial intelligence has revolutionized today's society by expanding machines' intellectual ability to approach humans through advanced algorithms. The physical capability of machines, however, remains basic compared to the evolved algorithms. Robots providing physical autonomy for general utility mark a key driver of advances across healthcare, domestics, environmental, and logistics fields. This talk introduces three key concepts: multifunctional robotic materials enabling advanced tactile sensing; adaptive, sustainable materials such as vitrimers for self-healing and reconfiguration; and soft robotic bioelectronics integrating sensing and actuation for clinical applications.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T12:45Z" data-end="2026-03-19T14:15Z">13:45 – 15:15</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">ANTONIA GEORGOPOULOU<br>COSIMO DELLA SANTINA</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">ANTONIA GEORGOPOULOU</span>
+                        <button class="sb-talk-toggle" data-target="talk-antonia-georgopoulou"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-antonia-georgopoulou">
+                          <div class="sb-talk-title">Making Sense of Soft Robots</div>
+                          This talk presents multimodal sensing in soft robots using piezoresistive, thermoresistive, and chemoreceptive sensors, enabling improved perception and autonomy.
+                        </div>
+                        <span class="sb-speaker">COSIMO DELLA SANTINA</span>
+                        <button class="sb-talk-toggle" data-target="talk-cosimo-della-santina"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-cosimo-della-santina">
+                          <div class="sb-talk-title">Beyond Monolithic Physical Reservoirs in Neuro-Morphological Computation</div>
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T14:15Z" data-end="2026-03-19T14:30Z">15:15 – 15:30</span>
@@ -1472,11 +1594,35 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T08:15Z" data-end="2026-03-20T09:00Z">09:15 – 10:00</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">LARS CHITTKA</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">LARS CHITTKA</span>
+                        <button class="sb-talk-toggle" data-target="talk-lars-chittka"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-lars-chittka">
+                          <div class="sb-talk-title">The Mind of a Bee</div>
+                          Bees exhibit remarkable intelligence as individuals: navigation, face recognition, tool use, problem-solving, and social learning. This talk explores their cognitive capabilities and discusses implications for consciousness and ethical considerations.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T09:00Z" data-end="2026-03-20T10:30Z">10:00 – 11:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">MIRIAM KLOPOTEK<br>LUCIA MARUCCI<br>ORIT PELEG</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">MIRIAM KLOPOTEK</span>
+                        <button class="sb-talk-toggle" data-target="talk-miriam-klopotek"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-miriam-klopotek">
+                          <div class="sb-talk-title">Basic Physics Insights for Embodied Intelligence from Models of Computing in Materio</div>
+                          This talk presents physical reservoir computing grounded in statistical mechanics, where computation emerges from material dynamics far from equilibrium.
+                        </div>
+                        <span class="sb-speaker">LUCIA MARUCCI</span>
+                        <button class="sb-talk-toggle" data-target="talk-lucia-marucci"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-lucia-marucci">
+                          <div class="sb-talk-title">Programming Cells with Virtual Cell Models, Feedback Control and Machine Learning</div>
+                        </div>
+                        <span class="sb-speaker">ORIT PELEG</span>
+                        <button class="sb-talk-toggle" data-target="talk-orit-peleg"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-orit-peleg">
+                          <div class="sb-talk-title">How a Bee Cluster Computes Stability</div>
+                          This talk explores how honeybee clusters maintain stability through local interactions, revealing emergent order and embodied control mechanisms.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot sb-break">
                       <span class="sb-time" data-start="2026-03-20T10:30Z" data-end="2026-03-20T12:00Z">11:30 – 13:00</span>
@@ -1487,11 +1633,35 @@
 
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T12:00Z" data-end="2026-03-20T12:45Z">13:00 – 13:45</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: THILINA LALITHARATNE</span><span class="sb-speaker">AMY WINTERS</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: THILINA LALITHARATNE</span><span class="sb-speaker">AMY WINTERS</span>
+                        <button class="sb-talk-toggle" data-target="talk-amy-winters"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-amy-winters">
+                          <div class="sb-talk-title">Interactive Matters: Designing Material Systems for Embodied Intelligence</div>
+                          Interactive materials enable systems that sense, actuate, and adapt through their physical structure. This talk presents a material-led design approach where intelligence emerges from material behaviour and interaction.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T12:45Z" data-end="2026-03-20T14:15Z">13:45 – 15:15</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">TOBIAS DELBRÜCK<br>ALESSANDRA SCIUTTI<br>PORAMATE MANOONPONG</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">TOBIAS DELBRÜCK</span>
+                        <button class="sb-talk-toggle" data-target="talk-tobias-delbruck"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-tobias-delbruck">
+                          <div class="sb-talk-title">Argo2: Robot Sailboat</div>
+                          This talk presents Argo2, an open-source robot sailboat for autonomous environmental monitoring, including hardware and ROS2 system design.
+                        </div>
+                        <span class="sb-speaker">ALESSANDRA SCIUTTI</span>
+                        <button class="sb-talk-toggle" data-target="talk-alessandra-sciutti"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-alessandra-sciutti">
+                          <div class="sb-talk-title">Predictive Embodied Social Cognition in Robots</div>
+                          This talk explores how robots can model predictive embodied cognition to enable anticipation, adaptation, and social interaction.
+                        </div>
+                        <span class="sb-speaker">PORAMATE MANOONPONG</span>
+                        <button class="sb-talk-toggle" data-target="talk-poramate-manoonpong"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-poramate-manoonpong">
+                          <div class="sb-talk-title">Insect-Inspired Resilient Machines</div>
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T14:15Z" data-end="2026-03-20T14:30Z">15:15 – 15:30</span>
@@ -1657,11 +1827,32 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T16:15Z" data-end="2026-03-19T17:00Z">12:15 – 13:00</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">VALENTINA DI SANTO</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-speaker">VALENTINA DI SANTO</span>
+                        <button class="sb-talk-toggle" data-target="talk-valentina-di-santo"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-valentina-di-santo">
+                          <div class="sb-talk-title">Swimming smarter, not harder: How fishes navigate complex environments to save energy.</div>
+                          Fishes exhibit extraordinary locomotor abilities that have been central to their evolutionary success across diverse aquatic environments. This talk investigates how fishes accomplish large-scale migrations, execute rapid maneuvers, and conserve energy by exploiting environmental structures and gradients. It highlights how fishes actively sense and navigate complex conditions, challenging the traditional view of them as passive agents.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T17:00Z" data-end="2026-03-19T18:30Z">13:00 – 14:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">LUDOVIC RIGHETTI<br>YASEMIN OZKAN-AYDIN<br>PETROS KOUMOUTSAKOS<br>RYAN TRUBY</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">LUDOVIC RIGHETTI</span>
+                        <button class="sb-talk-toggle" data-target="talk-ludovic-righetti"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-ludovic-righetti">
+                          <div class="sb-talk-title">Optimal control in multi-modal sensor space with world models</div>
+                          This talk presents sensor-driven world models that enable optimization directly in multi-modal sensor space. It discusses planning and reinforcement learning methods for manipulation and locomotion learned from real hardware data.
+                        </div>
+                        <span class="sb-speaker">YASEMIN OZKAN-AYDIN</span>
+                        <span class="sb-speaker">PETROS KOUMOUTSAKOS</span>
+                        <span class="sb-speaker">RYAN TRUBY</span>
+                        <button class="sb-talk-toggle" data-target="talk-ryan-truby"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-ryan-truby">
+                          <div class="sb-talk-title">Architected Soft Actuators for Real-world Deployable Robots</div>
+                          This talk presents architected soft actuators and artificial musculoskeletal systems using 3D printed materials. It highlights strategies for achieving adaptable, efficient, and bioinspired robotic motion.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot sb-break">
                       <span class="sb-time" data-start="2026-03-19T18:30Z" data-end="2026-03-19T20:00Z">14:30 – 16:00</span>
@@ -1672,11 +1863,39 @@
 
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T20:00Z" data-end="2026-03-19T20:45Z">16:00 – 16:45</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: YUE XIE</span><span class="sb-speaker">MAJA MATARIC</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: YUE XIE</span><span class="sb-speaker">MAJA MATARIC</span>
+                        <button class="sb-talk-toggle" data-target="talk-maja-mataric"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-maja-mataric">
+                          <div class="sb-talk-title">It's Embodiment All the Way Down and All the Way Up: The Key Roles of Physical &amp; Social Interaction in Intelligent Behavior</div>
+                          This talk discusses socially assistive robotics and how robots can understand, interact with, and adapt to users' evolving needs. It explores methods for working with multimodal human data and highlights applications across healthcare, education, and long-term human–robot interaction.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T20:45Z" data-end="2026-03-19T22:15Z">16:45 – 18:15</span>
-                      <span class="sb-desc">Panel Talk:<br><span class="sb-speaker">JEAN HYAEJIN OH<br>JOSH BONGARD<br>HAVA SIEGELMANN<br>SHEILA MACRINE</span></span>
+                      <span class="sb-desc">Panel Talk:<br>
+                        <span class="sb-speaker">JEAN HYAEJIN OH</span>
+                        <button class="sb-talk-toggle" data-target="talk-jean-hyaejin-oh"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-jean-hyaejin-oh">
+                          <div class="sb-talk-title">Creative Physical AI</div>
+                        </div>
+                        <span class="sb-speaker">JOSH BONGARD</span>
+                        <button class="sb-talk-toggle" data-target="talk-josh-bongard"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-josh-bongard">
+                          <div class="sb-talk-title">Xenobots, polycomputation, and the future of AI.</div>
+                          This talk discusses new directions in AI inspired by biological systems, focusing on internal simulation and learning. It introduces xenobots and polycomputational materials as examples of systems with rich internal dynamics.
+                        </div>
+                        <span class="sb-speaker">HAVA SIEGELMANN</span>
+                        <button class="sb-talk-toggle" data-target="talk-hava-siegelmann"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-hava-siegelmann">
+                          <div class="sb-talk-title">Low Cost Lifelong Learning AI</div>
+                        </div>
+                        <span class="sb-speaker">SHEILA MACRINE</span>
+                        <button class="sb-talk-toggle" data-target="talk-sheila-macrine"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-sheila-macrine">
+                          <div class="sb-talk-title">Embodied Intelligence: From Carbon to Silicon and Beyond</div>
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-19T22:15Z" data-end="2026-03-19T22:30Z">18:15 – 18:30</span>
@@ -1700,11 +1919,35 @@
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T16:15Z" data-end="2026-03-20T17:00Z">12:15 – 13:00</span>
-                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: ARSEN ABDULALI</span><span class="sb-speaker">JARED CREGG</span></span>
+                      <span class="sb-desc">Plenary Talk:<br><span class="sb-chair">Chair: ARSEN ABDULALI</span><span class="sb-speaker">JARED CREGG</span>
+                        <button class="sb-talk-toggle" data-target="talk-jared-cregg"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-jared-cregg">
+                          <div class="sb-talk-title">Motor Primitives as the Architectural Basis of Embodied Movement</div>
+                          This talk proposes that vertebrate motor control is structured around reusable motor primitives that correspond to biomechanical regimes. These primitives provide a compact framework for understanding and engineering embodied movement.
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T17:00Z" data-end="2026-03-20T18:30Z">13:00 – 14:30</span>
-                      <span class="sb-desc">Panel Talks:<br><span class="sb-speaker">BOYUAN CHEN<br>JOHN RIEFFEL<br>ANDRES F. ARRIETA</span></span>
+                      <span class="sb-desc">Panel Talks:<br>
+                        <span class="sb-speaker">BOYUAN CHEN</span>
+                        <button class="sb-talk-toggle" data-target="talk-boyuan-chen"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-boyuan-chen">
+                          <div class="sb-talk-title">Discovery Machines</div>
+                          This talk introduces discovery machines—robots that learn through interaction, adaptation, and collaboration. It outlines a framework spanning sensing, adaptation, connection, and discovery.
+                        </div>
+                        <span class="sb-speaker">JOHN RIEFFEL</span>
+                        <button class="sb-talk-toggle" data-target="talk-john-rieffel"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-john-rieffel">
+                          <div class="sb-talk-title">SNN-driven Morphological Communication for Soft Embodied Intelligence</div>
+                          This talk explores morphological communication in soft robots driven by spiking neural networks, enabling coordinated behavior without explicit communication channels.
+                        </div>
+                        <span class="sb-speaker">ANDRES F. ARRIETA</span>
+                        <button class="sb-talk-toggle" data-target="talk-andres-arrieta"><span class="sb-talk-arrow">▶</span> Abstract</button>
+                        <div class="sb-talk-detail" id="talk-andres-arrieta">
+                          <div class="sb-talk-title">Mechanical intelligence for embodying control of soft machines</div>
+                        </div>
+                      </span>
                     </div>
                     <div class="sb-slot">
                       <span class="sb-time" data-start="2026-03-20T18:30Z" data-end="2026-03-20T18:45Z">14:30 – 14:45</span>
@@ -1780,7 +2023,7 @@
                         <div class="bo-talk"><div class="bo-talk-title">Towards the Unification of the Output Space in End-to-End Autonomous Driving</div><span class="bo-speaker">Jorge Daniel Rodríguez-Vidal</span> <span class="bo-inst">— Computer Vision Center &amp; Universitat Autònoma de Barcelona</span></div>
                         <div class="bo-talk"><div class="bo-talk-title">Enabling Embodied Intelligence at the Interface of Advanced Materials and Light</div><span class="bo-speaker">Rana Faryad Ali</span> <span class="bo-inst">— Massachusetts Institute of Technology</span></div>
                         <div class="bo-talk"><div class="bo-talk-title">The Role of Biosignals in Embodied Intelligence for Social Human-Robot Interaction</div><span class="bo-speaker">Suzanne Oliver</span> <span class="bo-inst">— New York University</span></div>
-                        <div class="bo-talk"><div class="bo-talk-title">Training Burst Dynamics of In-Vitro Cortical Neurons via Virtual Embodiment</div><span class="bo-speaker">Wesley Clawson</span> <span class="bo-inst">— Tufts University</span></div>
+                        <!-- <div class="bo-talk"><div class="bo-talk-title">Training Burst Dynamics of In-Vitro Cortical Neurons via Virtual Embodiment</div><span class="bo-speaker">Wesley Clawson</span> <span class="bo-inst">— Tufts University</span></div> -->
                         <div class="bo-talk"><div class="bo-talk-title">Maximizing van der Waals Contact in Gecko-Inspired Grippers for Complex Object Geometries via Compliant Backing</div><span class="bo-speaker">James Farmer</span> <span class="bo-inst">— Queen Mary University of London</span></div>
                         <div class="bo-talk"><div class="bo-talk-title">Controlled Coiling Dynamics in Soft Tentacle Actuators</div><span class="bo-speaker">Rashmi Wijesundara</span> <span class="bo-inst">— University of North Texas</span></div>
                         <div class="bo-talk"><div class="bo-talk-title">-</div><span class="bo-speaker">Vaughn Gzenda</span> <span class="bo-inst">— Toronto Metropolitan University</span></div>
@@ -2042,6 +2285,15 @@
       e.stopPropagation();
       var row = document.getElementById(this.dataset.target);
       var open = row.classList.toggle('open');
+      this.classList.toggle('open', open);
+    });
+  });
+
+  document.querySelectorAll('.sb-talk-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var detail = document.getElementById(this.dataset.target);
+      var open = detail.classList.toggle('open');
       this.classList.toggle('open', open);
     });
   });
